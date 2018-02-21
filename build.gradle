@@ -1,0 +1,17 @@
+group 'ch.hsr.adv.test'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = 1.9
+mainClassName = "Test"
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'ch.hsr.adv:adv-root:1+'
+}
