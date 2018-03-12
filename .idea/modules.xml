@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adv-client.iml" filepath="$PROJECT_DIR$/.idea/modules/adv-client.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adv-client_main.iml" filepath="$PROJECT_DIR$/.idea/modules/adv-client_main.iml" group="adv-client" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adv-client_test.iml" filepath="$PROJECT_DIR$/.idea/modules/adv-client_test.iml" group="adv-client" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adv-user_codebase.iml" filepath="$PROJECT_DIR$/.idea/modules/adv-user_codebase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adv-user_codebase_main.iml" filepath="$PROJECT_DIR$/.idea/modules/adv-user_codebase_main.iml" group="adv-user_codebase" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adv-user_codebase_test.iml" filepath="$PROJECT_DIR$/.idea/modules/adv-user_codebase_test.iml" group="adv-user_codebase" />
     </modules>
   </component>
 </project>
