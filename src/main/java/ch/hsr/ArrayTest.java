@@ -4,7 +4,7 @@ import ch.adv.lib.ADV;
 
 public class ArrayTest {
 
-    public static final void main(String[] args) {
+    public static void main(String[] args) {
 
         // opens ADV UI in a standalone process
         // creates a socket connection to the ADV UI
@@ -23,6 +23,8 @@ public class ArrayTest {
 
         ADV.snapshot(array);
         array.set(2, "World");
+
+        ADV.disconnect();
     }
 }
 
