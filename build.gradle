@@ -16,3 +16,12 @@ dependencies {
     compile 'ch.adv:adv-ui:0+'
     compile 'ch.adv:adv-lib:0+'
 }
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'ch.hsr.ArrayTest',
+                'Class-Path': configurations.runtime.files.collect { "lib/$it.name" }.join(' ')
+    }
+
+    from(configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }) {}
+}

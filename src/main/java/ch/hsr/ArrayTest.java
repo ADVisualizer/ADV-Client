@@ -9,7 +9,7 @@ public class ArrayTest {
         // opens ADV UI in a standalone process
         // creates a socket connection to the ADV UI
         // throws an exception if something didn't work as expected
-        ADV.launch();
+        ADV.launch(args);
 
         // instantiate data structure container
         MyArray array = new MyArray(5);
