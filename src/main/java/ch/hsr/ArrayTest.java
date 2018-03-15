@@ -1,11 +1,12 @@
 package ch.hsr;
 
 import ch.adv.lib.ADV;
+import ch.adv.lib.ADVException;
 
 
 public class ArrayTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ADVException {
 
         // opens ADV UI in a standalone process
         // creates a socket connection to the ADV UI
