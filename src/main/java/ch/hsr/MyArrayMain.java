@@ -15,10 +15,8 @@ public class MyArrayMain {
 
         // instantiate data structure container
         MyArray array = new MyArray(5, "ArraySession");
-        for (int i = 0; i < array.getSize(); i++) {
-            array.setCurrentItem(i);
-            adv.snapshot(array, "changing current item");
-        }
+        array.setCurrentItem(1);
+        adv.snapshot(array, "changing current item");
 
         array.set(0, "Hello");
         adv.snapshot(array, "change index 0");

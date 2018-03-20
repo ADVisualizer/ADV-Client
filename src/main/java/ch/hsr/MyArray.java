@@ -1,7 +1,7 @@
 package ch.hsr;
 
 import ch.adv.lib.array.ArrayModule;
-import ch.adv.lib.array.Coordinates;
+import ch.adv.lib.array.model.Coordinates;
 import ch.adv.lib.model.ADVStyle;
 
 import java.util.HashMap;
