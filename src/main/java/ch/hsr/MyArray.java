@@ -1,20 +1,24 @@
 package ch.hsr;
 
-import ch.adv.lib.ADVDefaultStyle;
-import ch.adv.lib.ADVStyle;
-import ch.adv.lib.array.ADVArray;
+import ch.adv.lib.array.ArrayModule;
+import ch.adv.lib.array.model.Coordinates;
+import ch.adv.lib.logic.model.styles.ADVStyle;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class MyArray implements ADVArray<String> {
+public class MyArray implements ArrayModule<String> {
 
+    private final String sessionName;
     private String[] array;
     private Map<Integer, ADVStyle> styleMap;
+    private Map<Integer, Coordinates> coordsMap;
 
-    public MyArray(int size) {
+    public MyArray(int size, String sessionName) {
         this.array = new String[size];
         this.styleMap = new HashMap<>();
+        this.coordsMap = new HashMap<>();
+        this.sessionName = sessionName;
     }
 
     @Override
@@ -23,9 +27,20 @@ public class MyArray implements ADVArray<String> {
     }
 
     @Override
+    public String getSessionName() {
+        return sessionName;
+    }
+
+    @Override
     public Map<Integer, ADVStyle> getStyleMap() {
         return styleMap;
     }
+
+    @Override
+    public Map<Integer, Coordinates> getCoordinates() {
+        return coordsMap;
+    }
+
 
     public int getSize() {
         return array.length;
@@ -36,8 +51,12 @@ public class MyArray implements ADVArray<String> {
     }
 
     public void setCurrentItem(int index) {
-        ADVStyle blueStyle = new ADVDefaultStyle();
+        ADVStyle blueStyle = new BlueStyle();
         styleMap.put(index, blueStyle);
+    }
+
+    public void setCoords(int index, int x, int y){
+        coordsMap.put(index, new Coordinates(x, y));
     }
 
 }

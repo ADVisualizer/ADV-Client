@@ -1,10 +1,10 @@
 package ch.hsr;
 
 import ch.adv.lib.ADV;
-import ch.adv.lib.ADVException;
+import ch.adv.lib.util.ADVException;
 
 
-public class ArrayTest {
+public class MyArrayMain {
 
     public static void main(String[] args) throws ADVException {
 
@@ -14,17 +14,19 @@ public class ArrayTest {
         ADV adv = ADV.launch(args);
 
         // instantiate data structure container
-        MyArray array = new MyArray(5);
-        for (int i = 0; i < array.getSize(); i++) {
-            array.setCurrentItem(i);
-            adv.snapshot(array);
-        }
+        MyArray array = new MyArray(5, "ArraySession");
+        array.setCurrentItem(1);
+        adv.snapshot(array, "changing current item");
 
-        adv.snapshot(array);
         array.set(0, "Hello");
+        adv.snapshot(array, "change index 0");
 
-        adv.snapshot(array);
         array.set(2, "World");
+        adv.snapshot(array, "change index 2");
+
+        array.setCoords(1, 10, 50);
+        adv.snapshot(array, "fixing position");
+
 
         adv.disconnect();
     }
