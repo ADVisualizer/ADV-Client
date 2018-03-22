@@ -1,7 +1,7 @@
 package ch.hsr;
 
 import ch.adv.lib.ADV;
-import ch.adv.lib.ADVException;
+import ch.adv.lib.util.ADVException;
 
 
 public class MyArrayMain {
