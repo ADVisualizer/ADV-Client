@@ -1,6 +1,6 @@
 package ch.hsr;
 
-import ch.adv.lib.model.ADVStyle;
+import ch.adv.lib.logic.model.styles.ADVStyle;
 
 public class BlueStyle implements ADVStyle {
 
