@@ -2,9 +2,7 @@ package ch.hsr;
 
 import ch.adv.lib.array.ArrayModule;
 import ch.adv.lib.array.domain.Coordinates;
-import ch.adv.lib.core.domain.styles.ADVStrokeStyle;
 import ch.adv.lib.core.domain.styles.ADVStyle;
-import ch.adv.lib.core.domain.styles.ADVValueStyle;
 
 import java.util.HashMap;
 import java.util.Map;
