@@ -1,6 +1,10 @@
 package ch.hsr;
 
 import ch.adv.lib.core.app.ADV;
+import ch.adv.lib.core.domain.styles.presets.ADVErrorStyle;
+import ch.adv.lib.core.domain.styles.presets.ADVInfoStyle;
+import ch.adv.lib.core.domain.styles.presets.ADVSuccessStyle;
+import ch.adv.lib.core.domain.styles.presets.ADVWarningStyle;
 import ch.adv.lib.core.util.ADVException;
 
 
@@ -14,55 +18,40 @@ public class MyArrayMain {
         ADV adv = ADV.launch(args);
 
         // instantiate data structure container
-        MyArray array = new MyArray(5, "ArraySession");
-        for (int i = 0; i < array.getArray().length; i++) {
-            array.set(i, "1");
-        }
-        array.setCurrentItem(1);
-        adv.snapshot(array, "1");
+        MyArray array = new MyArray(5, "ArrayStringsSession");
+        array.set(0, "Hello");
+        array.set(1, "World");
+        array.setCurrentItem(1, new ADVWarningStyle());
+        array.set(2, "How's");
+        array.setCurrentItem(2, new ADVInfoStyle());
+        array.set(3, "it");
+        array.setCurrentItem(3, new ADVErrorStyle());
+        array.set(4, "going?");
+        array.setCurrentItem(4, new ADVSuccessStyle());
 
-        for (int i = 0; i < array.getArray().length; i++) {
-            array.set(i, "2");
-        }
-        adv.snapshot(array, "2");
-
-        for (int i = 0; i < array.getArray().length; i++) {
-            array.set(i, "3");
-        }
-        adv.snapshot(array, "3");
+        adv.snapshot(array, "Sentence");
 
         array.setCoords(1, 10, 50);
-        for (int i = 0; i < array.getArray().length; i++) {
-            array.set(i, "4");
-        }
-        adv.snapshot(array, "4");
-        for (int i = 0; i < array.getArray().length; i++) {
-            array.set(i, "5");
-        }
-        adv.snapshot(array, "5");
-        array.set(0, "6");
-        adv.snapshot(array, "6");
-        Thread.sleep(500);
-        array.set(1, "7");
-     //   test(null);
-        adv.snapshot(array, "7");
-        array.set(2, "8");
-        adv.snapshot(array, "8");
-        array.set(3, "9");
-        adv.snapshot(array, "9");
-        Thread.sleep(500);
-        array.set(4, "10");
-        adv.snapshot(array, "10");
+        adv.snapshot(array, "Changing Coords");
+
+        array.set(0, "1");
+        adv.snapshot(array, "0 -> 1");
+        array.set(1, "2");
+        adv.snapshot(array, "1 -> 2");
+        array.set(2, "3");
+        adv.snapshot(array, "2 -> 3");
+        array.set(3, "4");
+        adv.snapshot(array, "3 -> 4");
+        array.set(4, "5");
+        adv.snapshot(array, "4 -> 5");
         array.set(0, "11");
         adv.snapshot(array, "11");
-        Thread.sleep(500);
         array.set(1, "12");
         adv.snapshot(array, "12");
         array.set(2, "13");
         adv.snapshot(array, "13");
         array.set(3, "14");
         adv.snapshot(array, "14");
-        Thread.sleep(500);
         array.set(4, "15");
         adv.snapshot(array, "15");
 
