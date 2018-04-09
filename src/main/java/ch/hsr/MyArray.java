@@ -2,7 +2,9 @@ package ch.hsr;
 
 import ch.adv.lib.array.ArrayModule;
 import ch.adv.lib.array.domain.Coordinates;
+import ch.adv.lib.core.domain.styles.ADVStrokeStyle;
 import ch.adv.lib.core.domain.styles.ADVStyle;
+import ch.adv.lib.core.domain.styles.ADVValueStyle;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -50,12 +52,11 @@ public class MyArray implements ArrayModule<String> {
         array[index] = value;
     }
 
-    public void setCurrentItem(int index) {
-        ADVStyle blueStyle = new BlueStyle();
-        styleMap.put(index, blueStyle);
+    public void setCurrentItem(int index, ADVStyle style) {
+        styleMap.put(index, style);
     }
 
-    public void setCoords(int index, int x, int y){
+    public void setCoords(int index, int x, int y) {
         coordsMap.put(index, new Coordinates(x, y));
     }
 
