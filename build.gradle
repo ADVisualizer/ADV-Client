@@ -13,8 +13,8 @@ repositories {
 }
 
 dependencies {
-    compile 'ch.adv:adv-ui:0+'
-    compile 'ch.adv:adv-lib:0+'
+    compile 'ch.adv:adv-ui:0.2'
+    compile 'ch.adv:adv-lib:0.2'
 }
 
 jar {
