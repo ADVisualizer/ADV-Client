@@ -50,12 +50,11 @@ public class MyArray implements ArrayModule<String> {
         array[index] = value;
     }
 
-    public void setCurrentItem(int index) {
-        ADVStyle blueStyle = new BlueStyle();
-        styleMap.put(index, blueStyle);
+    public void setCurrentItem(int index, ADVStyle style) {
+        styleMap.put(index, style);
     }
 
-    public void setCoords(int index, int x, int y){
+    public void setCoordinates(int index, int x, int y) {
         coordsMap.put(index, new Coordinates(x, y));
     }
 
