@@ -1,7 +1,7 @@
 package ch.hsr;
 
 import ch.adv.lib.array.ArrayModule;
-import ch.adv.lib.array.domain.Coordinates;
+import ch.adv.lib.array.domain.Coordinate;
 import ch.adv.lib.core.domain.styles.ADVStyle;
 
 import java.util.HashMap;
@@ -12,7 +12,7 @@ public class MyArray implements ArrayModule<String> {
     private final String sessionName;
     private String[] array;
     private Map<Integer, ADVStyle> styleMap;
-    private Map<Integer, Coordinates> coordsMap;
+    private Map<Integer, Coordinate> coordsMap;
 
     public MyArray(int size, String sessionName) {
         this.array = new String[size];
@@ -37,7 +37,7 @@ public class MyArray implements ArrayModule<String> {
     }
 
     @Override
-    public Map<Integer, Coordinates> getCoordinates() {
+    public Map<Integer, Coordinate> getCoordinates() {
         return coordsMap;
     }
 
@@ -55,7 +55,7 @@ public class MyArray implements ArrayModule<String> {
     }
 
     public void setCoordinates(int index, int x, int y) {
-        coordsMap.put(index, new Coordinates(x, y));
+        coordsMap.put(index, new Coordinate(x, y));
     }
 
 }

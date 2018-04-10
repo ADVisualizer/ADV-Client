@@ -1,6 +1,6 @@
 package ch.hsr;
 
-import ch.adv.lib.array.domain.Coordinates;
+import ch.adv.lib.array.domain.Coordinate;
 import ch.adv.lib.core.app.ADV;
 import ch.adv.lib.core.domain.styles.presets.ADVErrorStyle;
 import ch.adv.lib.core.domain.styles.presets.ADVInfoStyle;
