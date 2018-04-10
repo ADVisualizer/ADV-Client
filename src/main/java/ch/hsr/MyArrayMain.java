@@ -1,11 +1,7 @@
 package ch.hsr;
 
-import ch.adv.lib.array.domain.Coordinate;
 import ch.adv.lib.core.app.ADV;
-import ch.adv.lib.core.domain.styles.presets.ADVErrorStyle;
-import ch.adv.lib.core.domain.styles.presets.ADVInfoStyle;
-import ch.adv.lib.core.domain.styles.presets.ADVSuccessStyle;
-import ch.adv.lib.core.domain.styles.presets.ADVWarningStyle;
+import ch.adv.lib.core.domain.styles.presets.*;
 import ch.adv.lib.core.util.ADVException;
 
 
@@ -18,9 +14,17 @@ public class MyArrayMain {
         // throws an exception if something didn't work as expected
         ADV adv = ADV.launch(args);
 
+        // draws a arrow from one element to the other
+        ArrayRelation relation = new ArrayRelation();
+        relation.setSourceElementId(1);
+        relation.setTargetElementId(2);
+        relation.setLabel("References");
+        relation.setStyle(new ADVDefaultStyle());
+
         // instantiate data structure container
         MyArray array = new MyArray(5, "ArrayStringsSession");
         array.set(0, "Hello");
+        array.addRelation(relation);
         adv.snapshot(array, "Changing Coords");
         array.setCoordinates(1, 150, 100);
         array.set(1, "World");

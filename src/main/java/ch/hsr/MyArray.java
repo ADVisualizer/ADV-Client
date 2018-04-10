@@ -2,22 +2,24 @@ package ch.hsr;
 
 import ch.adv.lib.array.ArrayModule;
 import ch.adv.lib.array.domain.Coordinate;
+import ch.adv.lib.core.domain.ADVRelation;
 import ch.adv.lib.core.domain.styles.ADVStyle;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MyArray implements ArrayModule<String> {
 
     private final String sessionName;
     private String[] array;
-    private Map<Integer, ADVStyle> styleMap;
-    private Map<Integer, Coordinate> coordsMap;
+    private Map<Integer, ADVStyle> styleMap = new HashMap<>();
+    private Map<Integer, Coordinate> coordsMap = new HashMap<>();
+    private List<ADVRelation> advRelations = new ArrayList<>();
 
     public MyArray(int size, String sessionName) {
         this.array = new String[size];
-        this.styleMap = new HashMap<>();
-        this.coordsMap = new HashMap<>();
         this.sessionName = sessionName;
     }
 
@@ -41,6 +43,10 @@ public class MyArray implements ArrayModule<String> {
         return coordsMap;
     }
 
+    @Override
+    public List<ADVRelation> getRelations() {
+        return advRelations;
+    }
 
     public int getSize() {
         return array.length;
@@ -58,4 +64,7 @@ public class MyArray implements ArrayModule<String> {
         coordsMap.put(index, new Coordinate(x, y));
     }
 
+    public void addRelation(ADVRelation relation) {
+        this.advRelations.add(relation);
+    }
 }
