@@ -54,7 +54,7 @@ public class MyArray implements ArrayModule<String> {
         styleMap.put(index, style);
     }
 
-    public void setCoords(int index, int x, int y) {
+    public void setCoordinates(int index, int x, int y) {
         coordsMap.put(index, new Coordinates(x, y));
     }
 

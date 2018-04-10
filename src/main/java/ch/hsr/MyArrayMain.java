@@ -1,5 +1,6 @@
 package ch.hsr;
 
+import ch.adv.lib.array.domain.Coordinates;
 import ch.adv.lib.core.app.ADV;
 import ch.adv.lib.core.domain.styles.presets.ADVErrorStyle;
 import ch.adv.lib.core.domain.styles.presets.ADVInfoStyle;
@@ -20,6 +21,8 @@ public class MyArrayMain {
         // instantiate data structure container
         MyArray array = new MyArray(5, "ArrayStringsSession");
         array.set(0, "Hello");
+        adv.snapshot(array, "Changing Coords");
+        array.setCoordinates(1, 150, 100);
         array.set(1, "World");
         array.setCurrentItem(1, new ADVWarningStyle());
         array.set(2, "How's");
@@ -30,9 +33,6 @@ public class MyArrayMain {
         array.setCurrentItem(4, new ADVSuccessStyle());
 
         adv.snapshot(array, "Sentence");
-
-        array.setCoords(1, 10, 50);
-        adv.snapshot(array, "Changing Coords");
 
         array.set(0, "1");
         adv.snapshot(array, "0 -> 1");
