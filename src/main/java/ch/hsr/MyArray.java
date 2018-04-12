@@ -41,6 +41,14 @@ public class MyArray implements ArrayModule<String> {
         return coordsMap;
     }
 
+    public void changeArraySize(int newSize){
+        String[] old = this.array;
+        this.array = new String[newSize];
+        int smallerSize = Integer.min(old.length, this.array.length);
+        for (int i = 0; i< smallerSize; i++){
+            this.array[i] = old[i];
+        }
+    }
 
     public int getSize() {
         return array.length;
