@@ -1,5 +1,6 @@
 package ch.hsr;
 
+import ch.adv.lib.array.domain.ArrayRelation;
 import ch.adv.lib.core.app.ADV;
 import ch.adv.lib.core.domain.styles.presets.*;
 import ch.adv.lib.core.util.ADVException;
@@ -15,18 +16,18 @@ public class MyArrayMain {
         ADV adv = ADV.launch(args);
 
         // draws a arrow from one element to the other
-        ArrayRelation relation = new ArrayRelation();
-        relation.setSourceElementId(1);
-        relation.setTargetElementId(2);
-        relation.setLabel("References");
-        relation.setStyle(new ADVDefaultStyle());
+        ArrayRelation relation1 = new ArrayRelation(0, 1);
+        relation1.setLabel("Relation");
+        ArrayRelation relation2 = new ArrayRelation(1, 2);
+        ArrayRelation relation3 = new ArrayRelation(2, 3);
+        ArrayRelation relation4 = new ArrayRelation(3, 4);
 
         // instantiate data structure container
         MyArray array = new MyArray(5, "ArrayStringsSession");
         array.set(0, "Hello");
-        array.addRelation(relation);
+        array.addRelation(relation1, relation2, relation3, relation4);
+
         adv.snapshot(array, "Changing Coords");
-        array.setCoordinates(1, 150, 100);
         array.set(1, "World");
         array.setCurrentItem(1, new ADVWarningStyle());
         array.set(2, "How's");
@@ -35,7 +36,6 @@ public class MyArrayMain {
         array.setCurrentItem(3, new ADVErrorStyle());
         array.set(4, "going?");
         array.setCurrentItem(4, new ADVSuccessStyle());
-
         adv.snapshot(array, "Sentence");
 
         array.set(0, "1");

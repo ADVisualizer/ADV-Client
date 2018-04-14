@@ -5,10 +5,7 @@ import ch.adv.lib.array.domain.Coordinate;
 import ch.adv.lib.core.domain.ADVRelation;
 import ch.adv.lib.core.domain.styles.ADVStyle;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class MyArray implements ArrayModule<String> {
 
@@ -64,7 +61,7 @@ public class MyArray implements ArrayModule<String> {
         coordsMap.put(index, new Coordinate(x, y));
     }
 
-    public void addRelation(ADVRelation relation) {
-        this.advRelations.add(relation);
+    public void addRelation(ADVRelation... relations) {
+        Arrays.stream(relations).forEach(r -> advRelations.add(r));
     }
 }
