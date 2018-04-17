@@ -79,4 +79,12 @@ public class MyArray<T> implements ArrayModule<T> {
     public void addRelation(ADVRelation... relations) {
         Arrays.stream(relations).forEach(r -> advRelations.add(r));
     }
+
+    public void clearStyles() {
+        styleMap.clear();
+    }
+
+    public void clearRelations() {
+        advRelations.clear();
+    }
 }
