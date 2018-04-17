@@ -1,4 +1,4 @@
-package ch.hsr;
+package ch.hsr.array.model;
 
 import ch.adv.lib.array.ArrayModule;
 import ch.adv.lib.array.domain.Coordinate;
@@ -7,21 +7,23 @@ import ch.adv.lib.core.domain.styles.ADVStyle;
 
 import java.util.*;
 
-public class MyArray implements ArrayModule<String> {
+public class MyArray<T> implements ArrayModule<T> {
 
     private final String sessionName;
-    private String[] array;
+    private T[] array;
+    private boolean showObjectRelations = false;
     private Map<Integer, ADVStyle> styleMap = new HashMap<>();
     private Map<Integer, Coordinate> coordsMap = new HashMap<>();
     private List<ADVRelation> advRelations = new ArrayList<>();
 
+    @SuppressWarnings("unchecked")
     public MyArray(int size, String sessionName) {
-        this.array = new String[size];
+        this.array = (T[]) new Object[size];
         this.sessionName = sessionName;
     }
 
     @Override
-    public String[] getArray() {
+    public T[] getArray() {
         return array;
     }
 
@@ -45,12 +47,25 @@ public class MyArray implements ArrayModule<String> {
         return advRelations;
     }
 
+    @Override
+    public boolean showObjectRelations() {
+        return showObjectRelations;
+    }
+
+    public void setShowObjectRelations(boolean showObjectRelations) {
+        this.showObjectRelations = showObjectRelations;
+    }
+
     public int getSize() {
         return array.length;
     }
 
-    public void set(int index, String value) {
+    public void set(int index, T value) {
         array[index] = value;
+    }
+
+    public T get(int index) {
+        return array[index];
     }
 
     public void setCurrentItem(int index, ADVStyle style) {
