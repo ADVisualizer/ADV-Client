@@ -16,14 +16,14 @@ public class ObjectArray {
         objectArray.setShowObjectRelations(true);
         objectArray.set(0, "This");
         objectArray.set(1, "is");
-        objectArray.set(2, "a");
+        objectArray.set(2, "an");
         objectArray.set(3, "Object");
 
         adv.snapshot(objectArray, "");
 
         objectArray.set(0, null);
         objectArray.set(1, "is");
-        objectArray.set(2, "a");
+        objectArray.set(2, "an");
         objectArray.set(3, null);
         objectArray.set(4, "Object");
 
