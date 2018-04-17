@@ -1,14 +1,16 @@
-package ch.hsr;
+package ch.hsr.array;
 
+import ch.adv.lib.array.domain.ArrayRelation;
 import ch.adv.lib.core.app.ADV;
 import ch.adv.lib.core.domain.styles.presets.ADVErrorStyle;
 import ch.adv.lib.core.domain.styles.presets.ADVInfoStyle;
 import ch.adv.lib.core.domain.styles.presets.ADVSuccessStyle;
 import ch.adv.lib.core.domain.styles.presets.ADVWarningStyle;
 import ch.adv.lib.core.util.ADVException;
+import ch.hsr.array.model.MyArray;
 
 
-public class MyArrayMain {
+public class ADVElementsShowcase {
 
     public static void main(String[] args) throws ADVException, InterruptedException {
 
@@ -17,14 +19,19 @@ public class MyArrayMain {
         // throws an exception if something didn't work as expected
         ADV adv = ADV.launch(args);
 
+        // draws a arrow from one element to the other
+        ArrayRelation relation1 = new ArrayRelation(0, 1);
+        relation1.setLabel("Relation");
+        ArrayRelation relation2 = new ArrayRelation(1, 2);
+        ArrayRelation relation3 = new ArrayRelation(2, 3);
+        ArrayRelation relation4 = new ArrayRelation(3, 4);
+
         // instantiate data structure container
-        MyArray array = new MyArray(5, "ArrayStringsSession");
+        MyArray array = new MyArray(5, "ADV Elements Showcase");
         array.set(0, "Hello");
-        adv.snapshot(array, "Initial Snapshot");
+        array.addRelation(relation1, relation2, relation3, relation4);
 
-        array.setCoordinates(1, 150, 100);
         adv.snapshot(array, "Changing Coords");
-
         array.set(1, "World");
         array.setCurrentItem(1, new ADVWarningStyle());
         array.set(2, "How's");
@@ -66,10 +73,6 @@ public class MyArrayMain {
         adv.snapshot(array, "15");
 
         adv.disconnect();
-    }
-
-    private static void test(Object o) {
-        System.out.println(o.toString());
     }
 }
 
