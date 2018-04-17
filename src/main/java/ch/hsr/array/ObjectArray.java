@@ -19,7 +19,7 @@ public class ObjectArray {
         objectArray.set(2, "an");
         objectArray.set(3, "Object");
 
-        adv.snapshot(objectArray, "");
+        adv.snapshot(objectArray, "Objects are not directly in the array. The array holds only a reference to the object.");
 
         objectArray.set(0, null);
         objectArray.set(1, "is");
@@ -27,7 +27,7 @@ public class ObjectArray {
         objectArray.set(3, null);
         objectArray.set(4, "Object");
 
-        adv.snapshot(objectArray, "");
+        adv.snapshot(objectArray);
 
 
         adv.disconnect();
