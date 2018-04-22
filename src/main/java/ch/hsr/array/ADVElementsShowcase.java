@@ -12,7 +12,7 @@ import ch.hsr.array.model.MyArray;
 
 public class ADVElementsShowcase {
 
-    public static void main(String[] args) throws ADVException, InterruptedException {
+    public static void main(String[] args) throws ADVException {
 
         // opens ADV UI in a standalone process
         // creates a socket connection to the ADV UI
