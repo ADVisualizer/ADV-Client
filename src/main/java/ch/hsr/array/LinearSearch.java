@@ -37,8 +37,7 @@ public class LinearSearch {
                 break;
             }
 
-            //TODO: make snapshot description optional
-            adv.snapshot(array, "");
+            adv.snapshot(array);
         }
 
         adv.disconnect();

@@ -1,6 +1,5 @@
 package ch.hsr.array;
 
-import ch.adv.lib.array.domain.ArrayRelation;
 import ch.adv.lib.core.app.ADV;
 import ch.adv.lib.core.domain.styles.presets.ADVErrorStyle;
 import ch.adv.lib.core.domain.styles.presets.ADVInfoStyle;
@@ -19,18 +18,9 @@ public class ADVElementsShowcase {
         // throws an exception if something didn't work as expected
         ADV adv = ADV.launch(args);
 
-        // draws a arrow from one element to the other
-        ArrayRelation relation1 = new ArrayRelation(0, 1);
-        relation1.setLabel("Relation");
-        ArrayRelation relation2 = new ArrayRelation(1, 2);
-        ArrayRelation relation3 = new ArrayRelation(2, 3);
-        ArrayRelation relation4 = new ArrayRelation(3, 4);
-
         // instantiate data structure container
         MyArray array = new MyArray(5, "ADV Elements Showcase");
         array.set(0, "Hello");
-        array.addRelation(relation1, relation2, relation3, relation4);
-
         adv.snapshot(array, "Changing Coords");
         array.set(1, "World");
         array.setCurrentItem(1, new ADVWarningStyle());

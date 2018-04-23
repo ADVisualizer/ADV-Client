@@ -29,7 +29,6 @@ public class ObjectArray {
 
         adv.snapshot(objectArray);
 
-
         adv.disconnect();
     }
 }
