@@ -1,6 +1,6 @@
 package ch.hsr.array;
 
-import ch.adv.lib.core.logic.ADV;
+import ch.adv.lib.bootstrapper.ADV;
 import ch.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
 import ch.adv.lib.core.logic.domain.styles.presets.ADVInfoStyle;
 import ch.adv.lib.core.logic.domain.styles.presets.ADVSuccessStyle;
