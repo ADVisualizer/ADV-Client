@@ -1,9 +1,9 @@
 package ch.hsr.array;
 
-import ch.adv.lib.core.app.ADV;
-import ch.adv.lib.core.domain.styles.*;
-import ch.adv.lib.core.domain.styles.presets.*;
-import ch.adv.lib.core.util.ADVException;
+import ch.adv.lib.core.logic.ADV;
+import ch.adv.lib.core.logic.domain.styles.*;
+import ch.adv.lib.core.logic.domain.styles.presets.*;
+import ch.adv.lib.core.logic.util.ADVException;
 import ch.hsr.array.model.MyArray;
 
 import java.util.Random;
@@ -17,7 +17,7 @@ public class StylesShowcase {
 
         Random rnd = new Random();
         for (int i = 0; i < LENGTH; i++) {
-            array.set(i, rnd.nextBoolean());
+            array.set(i, true);
         }
 
         // -------- snapshot 1 -------- //

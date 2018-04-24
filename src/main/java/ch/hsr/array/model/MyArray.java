@@ -2,8 +2,8 @@ package ch.hsr.array.model;
 
 import ch.adv.lib.array.ArrayModule;
 import ch.adv.lib.array.domain.Coordinate;
-import ch.adv.lib.core.domain.ADVRelation;
-import ch.adv.lib.core.domain.styles.ADVStyle;
+import ch.adv.lib.core.logic.domain.ADVRelation;
+import ch.adv.lib.core.logic.domain.styles.ADVStyle;
 
 import java.util.*;
 
