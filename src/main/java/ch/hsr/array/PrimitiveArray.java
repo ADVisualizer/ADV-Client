@@ -9,7 +9,7 @@ public class PrimitiveArray {
 
     public static void main(String[] args) throws ADVException {
 
-        ADV adv = ADV.launch(args);
+        ADV.launch(args);
 
         MyArray<Object> primitiveArray = new MyArray<>(10, "Primitive Array");
 
@@ -17,15 +17,15 @@ public class PrimitiveArray {
         primitiveArray.set(3, 1);
         primitiveArray.set(0, 3);
         primitiveArray.set(5, 4);
-        adv.snapshot(primitiveArray, "First Snapshot");
+        ADV.snapshot(primitiveArray, "First Snapshot");
 
         primitiveArray.set(0, 0);
         primitiveArray.set(1, 1);
         primitiveArray.set(2, 2);
         primitiveArray.set(3, 3);
-        adv.snapshot(primitiveArray, "Second Snapshot");
+        ADV.snapshot(primitiveArray, "Second Snapshot");
 
-        adv.disconnect();
+        ADV.disconnect();
     }
 }
 

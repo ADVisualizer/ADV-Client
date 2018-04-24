@@ -12,7 +12,7 @@ public class LinearSearch {
 
     public static void main(String[] args) throws ADVException, InterruptedException {
 
-        ADV adv = ADV.launch(args);
+        ADV.launch(args);
 
         MyArray<Object> array = new MyArray<>(7, "LinearSearch");
         array.set(0, 8);
@@ -33,14 +33,14 @@ public class LinearSearch {
 
             if (currentItem == searchItem) {
                 array.getStyleMap().put(i, new ADVErrorStyle());
-                adv.snapshot(array, "");
+                ADV.snapshot(array, "");
                 break;
             }
 
-            adv.snapshot(array);
+            ADV.snapshot(array);
         }
 
-        adv.disconnect();
+        ADV.disconnect();
     }
 }
 
