@@ -1,9 +1,7 @@
 package ch.hsr.array;
 
-import ch.adv.lib.core.app.ADV;
-import ch.adv.lib.core.domain.styles.*;
-import ch.adv.lib.core.domain.styles.presets.*;
-import ch.adv.lib.core.util.ADVException;
+import ch.adv.lib.core.logic.ADV;
+import ch.adv.lib.core.logic.util.ADVException;
 import ch.hsr.array.model.MyArray;
 
 import java.util.Random;
@@ -12,7 +10,7 @@ public class CoordsShowcase {
     private static final int LENGTH = 5;
 
     public static void main(String[] args) throws ADVException {
-        ADV adv = ADV.launch(args);
+        ADV.launch(args);
         MyArray<Double> array = new MyArray<>(LENGTH, "CoordsShowcase");
 
         Random rnd = new Random();
@@ -22,12 +20,12 @@ public class CoordsShowcase {
         }
 
         // -------- snapshot 1 -------- //
-        adv.snapshot(array, "Using no coords.");
+        ADV.snapshot(array, "Using no coords.");
 
         // -------- snapshot 2 -------- //
         array.setCoordinates(0, 100, 500);
         array.setCoordinates(2, 500, 500);
-        adv.snapshot(array, "Using some coords");
+        ADV.snapshot(array, "Using some coords");
 
         // -------- snapshot 3 -------- //
         array.setCoordinates(0, 100, 500);
@@ -35,7 +33,7 @@ public class CoordsShowcase {
         array.setCoordinates(2, 500, 500);
         array.setCoordinates(3, 700, 500);
         array.setCoordinates(4, 900, 500);
-        adv.snapshot(array, "Using only coords");
+        ADV.snapshot(array, "Using only coords");
 
 
     }

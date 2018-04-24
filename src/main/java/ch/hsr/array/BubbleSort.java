@@ -1,18 +1,16 @@
 package ch.hsr.array;
 
-import ch.adv.lib.core.app.ADV;
-import ch.adv.lib.core.domain.styles.presets.ADVInfoStyle;
-import ch.adv.lib.core.util.ADVException;
+import ch.adv.lib.core.logic.ADV;
+import ch.adv.lib.core.logic.domain.styles.presets.ADVInfoStyle;
+import ch.adv.lib.core.logic.util.ADVException;
 import ch.hsr.array.model.MyArray;
 
 
 public class BubbleSort {
 
-    private static ADV adv;
-
     public static void main(String[] args) throws ADVException {
 
-        adv = ADV.launch(args);
+        ADV.launch(args);
 
         // instantiate data structure container
         MyArray<Integer> array = new MyArray<>(6, "BubbleSort");
@@ -25,10 +23,10 @@ public class BubbleSort {
 
         bubblesort(array);
 
-        adv.disconnect();
+        ADV.disconnect();
     }
 
-    public static void bubblesort(MyArray<Integer> array) {
+    private static void bubblesort(MyArray<Integer> array) {
         Integer temp;
         for (int i = 1; i < array.getSize(); i++) {
             for (int j = 0; j < array.getSize() - i; j++) {
@@ -37,14 +35,14 @@ public class BubbleSort {
                 array.getStyleMap().put(j, new ADVInfoStyle());
                 array.getStyleMap().put(j + 1, new ADVInfoStyle());
 
-                adv.snapshot(array);
+                ADV.snapshot(array);
 
                 if (array.get(j) > array.get(j + 1)) {
                     temp = array.get(j);
                     array.set(j, array.get(j + 1));
                     array.set(j + 1, temp);
 
-                    adv.snapshot(array);
+                    ADV.snapshot(array);
                 }
             }
         }

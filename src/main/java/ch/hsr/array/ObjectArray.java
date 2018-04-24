@@ -1,7 +1,7 @@
 package ch.hsr.array;
 
-import ch.adv.lib.core.app.ADV;
-import ch.adv.lib.core.util.ADVException;
+import ch.adv.lib.core.logic.ADV;
+import ch.adv.lib.core.logic.util.ADVException;
 import ch.hsr.array.model.MyArray;
 
 
@@ -9,7 +9,7 @@ public class ObjectArray {
 
     public static void main(String[] args) throws ADVException {
 
-        ADV adv = ADV.launch(args);
+        ADV.launch(args);
 
         // instantiate data structure container
         MyArray<String> objectArray = new MyArray<>(5, "ObjectArray");
@@ -19,7 +19,7 @@ public class ObjectArray {
         objectArray.set(2, "an");
         objectArray.set(3, "Object");
 
-        adv.snapshot(objectArray, "Objects are not directly in the array. The array holds only a reference to the object.");
+        ADV.snapshot(objectArray, "Objects are not directly in the array. The array holds only a reference to the object.");
 
         objectArray.set(0, null);
         objectArray.set(1, "is");
@@ -27,9 +27,9 @@ public class ObjectArray {
         objectArray.set(3, null);
         objectArray.set(4, "Object");
 
-        adv.snapshot(objectArray);
+        ADV.snapshot(objectArray);
 
-        adv.disconnect();
+        ADV.disconnect();
     }
 }
 
