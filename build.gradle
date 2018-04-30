@@ -11,6 +11,6 @@ repositories {
 }
 
 dependencies {
-    compile 'ch.adv:adv-ui:0.3'
-    compile 'ch.adv:adv-lib:0.3'
+    compile 'ch.hsr.adv:adv-ui:0.3'
+    compile 'ch.hsr.adv:adv-lib:0.3'
 }
