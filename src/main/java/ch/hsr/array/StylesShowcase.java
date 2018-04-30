@@ -29,16 +29,16 @@ public class StylesShowcase {
         ADV.snapshot(array, "Using preset styles.");
 
         // -------- snapshot 2 -------- //
-        array.getStyleMap().put(5, new ADVEnumStyle(ADVColor.ORANGE, ADVStrokeStyle.SOLID, ADVStrokeThickness.THIN));
-        array.getStyleMap().put(6, new ADVEnumStyle(ADVColor.LIGHTGREY, ADVStrokeStyle.SOLID, ADVStrokeThickness
+        array.getStyleMap().put(5, new ADVEnumStyle(ADVColor.ORANGE, ADVStrokeStyle.DASHED, ADVStrokeThickness.THIN));
+        array.getStyleMap().put(6, new ADVEnumStyle(ADVColor.LIGHTGREY, ADVStrokeStyle.DOTTED, ADVStrokeThickness
                 .MEDIUM, ADVColor.DARKGREY));
         array.getStyleMap().put(7, new ADVEnumStyle(ADVColor.YELLOW, ADVStrokeStyle.SOLID, ADVStrokeThickness
                 .MEDIUM, ADVColor.RED));
         ADV.snapshot(array, "Using enum style.");
 
         // -------- snapshot 3 -------- //
-        array.getStyleMap().put(8, new ADVValueStyle(0xff66ff, ADVStrokeStyle.SOLID, 4));
-        array.getStyleMap().put(9, new ADVValueStyle(0xcc9900, ADVStrokeStyle.SOLID, 2, 0xffffcc));
+        array.getStyleMap().put(8, new ADVValueStyle(0xff66ff, ADVStrokeStyle.DASHED, 4));
+        array.getStyleMap().put(9, new ADVValueStyle(0xcc9900, ADVStrokeStyle.DOTTED, 2, 0xffffcc));
         ADV.snapshot(array, "Using value style.");
     }
 
