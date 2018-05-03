@@ -43,11 +43,6 @@ public class MyArray<T> implements ArrayModule<T> {
     }
 
     @Override
-    public List<ADVRelation> getRelations() {
-        return advRelations;
-    }
-
-    @Override
     public boolean showObjectRelations() {
         return showObjectRelations;
     }

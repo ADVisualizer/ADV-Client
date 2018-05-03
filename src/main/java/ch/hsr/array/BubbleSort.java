@@ -26,7 +26,7 @@ public class BubbleSort {
         ADV.disconnect();
     }
 
-    private static void bubblesort(MyArray<Integer> array) {
+    private static void bubblesort(MyArray<Integer> array) throws ADVException {
         Integer temp;
         for (int i = 1; i < array.getSize(); i++) {
             for (int j = 0; j < array.getSize() - i; j++) {
