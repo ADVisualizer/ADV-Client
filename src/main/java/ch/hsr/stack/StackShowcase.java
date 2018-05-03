@@ -18,16 +18,21 @@ public class StackShowcase {
         ADV.snapshot(module, "Empty stack");
         stack.push(1);
         stack.push(2);
+        System.out.println(stack.toString());
         ADV.snapshot(module, "Pushed initial entries");
 
         stack.pop();
+        System.out.println(stack.toString());
         ADV.snapshot(module, "Poped entry");
 
         stack.push(2);
+        System.out.println(stack.toString());
         ADV.snapshot(module, "Pushed second entry again");
 
         stack.top();
+        System.out.println(stack.toString());
         ADV.snapshot(module, "Top does not change the stack values");
+        ADV.disconnect();
     }
 }
 

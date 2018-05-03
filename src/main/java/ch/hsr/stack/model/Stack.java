@@ -47,6 +47,11 @@ public class Stack<T> implements ADVStack<T> {
         return topNode.getElement();
     }
 
+    @Override
+    public String toString() {
+        return "[ top: " + top +" (size: "+size + ")]";
+    }
+
     /**
      * Nodes of a simple linked list.
      */
@@ -80,6 +85,11 @@ public class Stack<T> implements ADVStack<T> {
 
         public E getElement() {
             return element;
+        }
+
+        @Override
+        public String toString() {
+            return "" + element;
         }
     }
 
