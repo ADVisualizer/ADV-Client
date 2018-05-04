@@ -1,9 +1,9 @@
 package ch.hsr.array.model;
 
-import ch.adv.lib.array.logic.ArrayModule;
-import ch.adv.lib.array.logic.domain.Coordinate;
-import ch.adv.lib.core.logic.domain.ADVRelation;
-import ch.adv.lib.core.logic.domain.styles.ADVStyle;
+import ch.hsr.adv.lib.array.logic.ArrayModule;
+import ch.hsr.adv.lib.array.logic.domain.Coordinate;
+import ch.hsr.adv.lib.core.logic.domain.ADVRelation;
+import ch.hsr.adv.lib.core.logic.domain.styles.ADVStyle;
 
 import java.util.*;
 

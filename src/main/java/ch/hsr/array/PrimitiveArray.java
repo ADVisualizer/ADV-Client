@@ -1,7 +1,7 @@
 package ch.hsr.array;
 
-import ch.adv.lib.bootstrapper.ADV;
-import ch.adv.lib.core.logic.util.ADVException;
+import ch.hsr.adv.lib.bootstrapper.ADV;
+import ch.hsr.adv.lib.core.logic.util.ADVException;
 import ch.hsr.array.model.MyArray;
 
 

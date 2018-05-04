@@ -1,9 +1,9 @@
 package ch.hsr.array;
 
-import ch.adv.lib.bootstrapper.ADV;
-import ch.adv.lib.core.logic.domain.styles.*;
-import ch.adv.lib.core.logic.domain.styles.presets.*;
-import ch.adv.lib.core.logic.util.ADVException;
+import ch.hsr.adv.lib.bootstrapper.ADV;
+import ch.hsr.adv.lib.core.logic.domain.styles.*;
+import ch.hsr.adv.lib.core.logic.domain.styles.presets.*;
+import ch.hsr.adv.lib.core.logic.util.ADVException;
 import ch.hsr.array.model.MyArray;
 
 import java.util.Random;
