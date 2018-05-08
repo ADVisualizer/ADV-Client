@@ -8,6 +8,7 @@ public class MyVertex implements ADVVertex<String> {
     private ADVStyle style;
     private int fixedPosX;
     private int fixedPosY;
+    private boolean visisted;
 
     @Override
     public String getValue() {
@@ -43,5 +44,18 @@ public class MyVertex implements ADVVertex<String> {
 
     public void setFixedPosY(int fixedPosY) {
         this.fixedPosY = fixedPosY;
+    }
+
+    public boolean isVisisted() {
+        return visisted;
+    }
+
+    public void setVisisted(boolean visisted) {
+        this.visisted = visisted;
+    }
+
+    @Override
+    public String toString() {
+        return value;
     }
 }

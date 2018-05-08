@@ -6,6 +6,8 @@ import ch.hsr.adv.lib.graph.logic.domain.ADVVertex;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MyGraph implements ADVGraph<String, Integer> {
 
@@ -50,4 +52,16 @@ public class MyGraph implements ADVGraph<String, Integer> {
     public Collection<ADVEdge<Integer>> getEdges() {
         return edges;
     }
+
+    public List<ADVEdge> outgoingEdges(ADVVertex vertex) {
+        return edges.stream()
+                .filter(e -> e.getStarVertex() == vertex)
+                .collect(Collectors.toList());
+    }
+
+    public List<ADVVertex> neighbors(ADVVertex vertex) {
+        return outgoingEdges(vertex).stream().map(e -> e.getEndVertex()).collect(Collectors.toList());
+    }
+
+
 }

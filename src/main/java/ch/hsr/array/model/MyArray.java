@@ -2,6 +2,7 @@ package ch.hsr.array.model;
 
 import ch.hsr.adv.lib.array.logic.ArrayModule;
 import ch.hsr.adv.lib.array.logic.domain.Coordinate;
+import ch.hsr.adv.lib.core.logic.ADVModule;
 import ch.hsr.adv.lib.core.logic.domain.ADVRelation;
 import ch.hsr.adv.lib.core.logic.domain.styles.ADVStyle;
 
@@ -30,6 +31,11 @@ public class MyArray<T> implements ArrayModule<T> {
     @Override
     public String getSessionName() {
         return sessionName;
+    }
+
+    @Override
+    public List<ADVModule> getChildModules() {
+        return null;
     }
 
     @Override

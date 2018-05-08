@@ -1,7 +1,7 @@
 package ch.hsr.stack.model;
 
-import ch.adv.lib.stack.logic.domain.ADVStack;
-import ch.adv.lib.stack.logic.domain.EmptyStackException;
+import ch.hsr.adv.lib.stack.logic.domain.ADVStack;
+import ch.hsr.adv.lib.stack.logic.domain.EmptyStackException;
 
 public class Stack<T> implements ADVStack<T> {
 
@@ -49,7 +49,7 @@ public class Stack<T> implements ADVStack<T> {
 
     @Override
     public String toString() {
-        return "[ top: " + top +" (size: "+size + ")]";
+        return "[ top: " + top + " (size: " + size + ")]";
     }
 
     /**
