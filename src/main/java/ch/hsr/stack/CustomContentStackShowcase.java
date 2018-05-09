@@ -1,10 +1,10 @@
 package ch.hsr.stack;
 
-import ch.adv.lib.bootstrapper.ADV;
-import ch.adv.lib.core.logic.ADVModule;
-import ch.adv.lib.core.logic.util.ADVException;
-import ch.adv.lib.stack.logic.StackModule;
-import ch.adv.lib.stack.logic.domain.ADVStack;
+import ch.hsr.adv.lib.bootstrapper.ADV;
+import ch.hsr.adv.lib.core.logic.ADVModule;
+import ch.hsr.adv.lib.core.logic.util.ADVException;
+import ch.hsr.adv.lib.stack.logic.StackModule;
+import ch.hsr.adv.lib.stack.logic.domain.ADVStack;
 import ch.hsr.stack.model.Stack;
 
 public class CustomContentStackShowcase {
@@ -20,7 +20,7 @@ public class CustomContentStackShowcase {
         ADVStack<StackContent> stack = new Stack<>();
         ADVModule module = new StackModule<>("Stack", stack);
 
-        stack.push(new StackContent(1,"1", "2"));
+        stack.push(new StackContent(1, "1", "2"));
         stack.push(new StackContent(2, "abc", "efg"));
         System.out.println(stack.toString());
         ADV.snapshot(module, "Pushed initial entries");
@@ -38,7 +38,7 @@ public class CustomContentStackShowcase {
         ADV.snapshot(module, "Top does not change the stack values");
     }
 
-    private class StackContent{
+    private class StackContent {
         int id;
         String value1;
         String value2;
@@ -51,7 +51,7 @@ public class CustomContentStackShowcase {
 
         @Override
         public String toString() {
-            return id +": "+  value1 + ", " + value2;
+            return id + ": " + value1 + ", " + value2;
         }
     }
 }

@@ -1,10 +1,10 @@
 package ch.hsr.stack;
 
-import ch.adv.lib.bootstrapper.ADV;
-import ch.adv.lib.core.logic.ADVModule;
-import ch.adv.lib.core.logic.util.ADVException;
-import ch.adv.lib.stack.logic.StackModule;
-import ch.adv.lib.stack.logic.domain.ADVStack;
+import ch.hsr.adv.lib.bootstrapper.ADV;
+import ch.hsr.adv.lib.core.logic.ADVModule;
+import ch.hsr.adv.lib.core.logic.util.ADVException;
+import ch.hsr.adv.lib.stack.logic.StackModule;
+import ch.hsr.adv.lib.stack.logic.domain.ADVStack;
 import ch.hsr.stack.model.Stack;
 
 public class StackShowcase {
