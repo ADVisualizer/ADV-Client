@@ -39,7 +39,7 @@ public class MultiModule {
         fillStack(stackModule);
         fillStack(stackModule2);
 
-        ADV.snapshot(graphModule);
+        ADV.snapshot(graphModule, "Showing 4 Modules simultaniously");
         ADV.disconnect();
     }
 

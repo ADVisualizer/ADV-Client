@@ -69,7 +69,7 @@ public class DepthFirstSearch {
                 if (n != null && !n.isVisisted()) {
                     stack.push(n);
                     n.setVisisted(true);
-                    ADV.snapshot(graphModule);
+                    ADV.snapshot(graphModule, "Snapshot " + i);
                 }
             }
         }
