@@ -49,7 +49,7 @@ public class Stack<T> implements ADVStack<T> {
 
     @Override
     public String toString() {
-        return "[ top: " + top +" (size: "+size + ")]";
+        return "[ top: " + top + " (size: " + size + ")]";
     }
 
     /**

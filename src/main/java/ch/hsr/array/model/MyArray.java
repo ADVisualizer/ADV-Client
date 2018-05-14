@@ -13,8 +13,9 @@ public class MyArray<T> implements ArrayModule<T> {
     private final String sessionName;
     private T[] array;
     private boolean showObjectRelations = false;
-    private Map<Integer, ADVStyle> styleMap = new HashMap<>();
-    private Map<Integer, Coordinate> coordsMap = new HashMap<>();
+    private final Map<Integer, ADVStyle> styleMap = new HashMap<>();
+    private final Map<Integer, Coordinate> coordsMap = new HashMap<>();
+    private final List<ADVModule> childModules = new ArrayList<>();
 
     @SuppressWarnings("unchecked")
     public MyArray(int size, String sessionName) {
@@ -34,7 +35,7 @@ public class MyArray<T> implements ArrayModule<T> {
 
     @Override
     public List<ADVModule> getChildModules() {
-        return new ArrayList<>();
+        return childModules;
     }
 
     @Override
