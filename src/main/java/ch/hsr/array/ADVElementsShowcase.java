@@ -8,14 +8,13 @@ import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVInfoStyle;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVSuccessStyle;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVWarningStyle;
 import ch.hsr.adv.lib.core.logic.util.ADVException;
-import ch.hsr.array.model.MyArray;
 
 
 public class ADVElementsShowcase {
     // instantiate data structure container
-    private static final MyArray<String> array = new MyArray<>(new String[5]);
+    private static final String[] array = new String[5];
     private static final ArrayModule<String> arrayModule =
-            new ArrayModule<>("ADV Elements Showcase", array.getArray());
+            new ArrayModule<>("ADV Elements Showcase", array);
 
 
     public static void main(String[] args) throws ADVException {
@@ -26,46 +25,46 @@ public class ADVElementsShowcase {
         ADV.launch(args);
 
         // instantiate data structure container
-        array.set(0, "Hello");
+        array[0] = "Hello";
         ADV.snapshot(arrayModule, "Changing Coords");
-        array.set(1, "World");
+        array[1] = "World";
         setCurrentItem(1, new ADVWarningStyle());
-        array.set(2, "How's");
+        array[2] = "How's";
         setCurrentItem(2, new ADVInfoStyle());
-        array.set(3, "it");
+        array[3] = "it";
         setCurrentItem(3, new ADVErrorStyle());
-        array.set(4, "going?");
+        array[4] = "going";
         setCurrentItem(4, new ADVSuccessStyle());
         ADV.snapshot(arrayModule, "Sentence");
 
-        array.set(0, "1");
+        array[0] = "1";
         ADV.snapshot(arrayModule, "0 -> 1");
 
-        array.set(1, "2");
+        array[1] = "2";
         ADV.snapshot(arrayModule, "1 -> 2");
 
-        array.set(2, "3");
+        array[2] = "3";
         ADV.snapshot(arrayModule, "2 -> 3");
 
-        array.set(3, "4");
+        array[3] = "4";
         ADV.snapshot(arrayModule, "3 -> 4");
 
-        array.set(4, "5");
+        array[4] = "5";
         ADV.snapshot(arrayModule, "4 -> 5");
 
-        array.set(0, "11");
+        array[0] = "11";
         ADV.snapshot(arrayModule, "11");
 
-        array.set(1, "12");
+        array[1] = "12";
         ADV.snapshot(arrayModule, "12");
 
-        array.set(2, "13");
+        array[2] = "13";
         ADV.snapshot(arrayModule, "13");
 
-        array.set(3, "14");
+        array[3] = "14";
         ADV.snapshot(arrayModule, "14");
 
-        array.set(4, "15");
+        array[4] = "15";
         ADV.snapshot(arrayModule, "15");
 
         ADV.disconnect();

@@ -5,24 +5,20 @@ import ch.hsr.adv.lib.bootstrapper.ADV;
 import ch.hsr.adv.lib.core.logic.domain.styles.*;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.*;
 import ch.hsr.adv.lib.core.logic.util.ADVException;
-import ch.hsr.array.model.MyArray;
-
-import java.util.Random;
 
 public class StylesShowcase {
     // instantiate data structure container
     private static final int LENGTH = 10;
-    private static final MyArray<Boolean> array = new MyArray<>(new Boolean[LENGTH]);
+    private static final Boolean[] array = new Boolean[LENGTH];
     private static final ArrayModule<Boolean> arrayModule =
-            new ArrayModule<>("StylesShowcase", array.getArray());
+            new ArrayModule<>("StylesShowcase", array);
 
 
     public static void main(String[] args) throws ADVException {
         ADV.launch(args);
 
-        Random rnd = new Random();
         for (int i = 0; i < LENGTH; i++) {
-            array.set(i, true);
+            array[i] = true;
         }
 
         // -------- snapshot 1 -------- //
