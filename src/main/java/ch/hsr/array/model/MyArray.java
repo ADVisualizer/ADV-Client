@@ -2,6 +2,7 @@ package ch.hsr.array.model;
 
 import ch.hsr.adv.lib.array.logic.ArrayModule;
 import ch.hsr.adv.lib.array.logic.domain.Coordinate;
+import ch.hsr.adv.lib.core.logic.ADVModule;
 import ch.hsr.adv.lib.core.logic.domain.ADVRelation;
 import ch.hsr.adv.lib.core.logic.domain.styles.ADVStyle;
 
@@ -14,7 +15,6 @@ public class MyArray<T> implements ArrayModule<T> {
     private boolean showObjectRelations = false;
     private Map<Integer, ADVStyle> styleMap = new HashMap<>();
     private Map<Integer, Coordinate> coordsMap = new HashMap<>();
-    private List<ADVRelation> advRelations = new ArrayList<>();
 
     @SuppressWarnings("unchecked")
     public MyArray(int size, String sessionName) {
@@ -30,6 +30,11 @@ public class MyArray<T> implements ArrayModule<T> {
     @Override
     public String getSessionName() {
         return sessionName;
+    }
+
+    @Override
+    public List<ADVModule> getChildModules() {
+        return new ArrayList<>();
     }
 
     @Override
@@ -71,15 +76,8 @@ public class MyArray<T> implements ArrayModule<T> {
         coordsMap.put(index, new Coordinate(x, y));
     }
 
-    public void addRelation(ADVRelation... relations) {
-        Arrays.stream(relations).forEach(r -> advRelations.add(r));
-    }
-
     public void clearStyles() {
         styleMap.clear();
     }
 
-    public void clearRelations() {
-        advRelations.clear();
-    }
 }

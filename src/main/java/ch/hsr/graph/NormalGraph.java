@@ -1,6 +1,7 @@
 package ch.hsr.graph;
 
 import ch.hsr.adv.lib.bootstrapper.ADV;
+import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVInfoStyle;
 import ch.hsr.adv.lib.core.logic.util.ADVException;
 import ch.hsr.adv.lib.graph.logic.GraphModule;
 import ch.hsr.adv.lib.graph.logic.domain.ADVVertex;
@@ -28,6 +29,7 @@ public class NormalGraph {
         c.setFixedPosX(180);
         c.setFixedPosY(100);
         ADVVertex<String> d = graph.insertVertex("D");
+        d.setStyle(new ADVInfoStyle());
         d.setFixedPosX(100);
         d.setFixedPosY(150);
         ADVVertex<String> e = graph.insertVertex("E");
