@@ -23,7 +23,7 @@ public class DepthFirstSearch {
         ADV.launch(args);
 
         // instantiate data structure container
-        StackModule<Integer> stackModule = new StackModule("", stack);
+        StackModule<MyVertex> stackModule = new StackModule<>("", stack);
         graphModule.addChildModule(stackModule);
 
         MyVertex a = (MyVertex) graph.insertVertex("A");
