@@ -42,23 +42,23 @@ public class MultipleEdgesGraph {
         Edge<Integer> ab = new Edge<>(a, b);
         ab.setLabel(1);
         Edge<Integer> ab2 = new Edge<>(a, b);
-        ab.setLabel(11);
+        ab2.setLabel(11);
         Edge<Integer> ac = new Edge<>(a, c);
-        ab.setLabel(2);
+        ac.setLabel(2);
         Edge<Integer> ac2 = new Edge<>(a, c);
-        ab.setLabel(22);
+        ac2.setLabel(22);
         Edge<Integer> ad = new Edge<>(a, d);
-        ab.setLabel(3);
+        ad.setLabel(3);
         Edge<Integer> ad2 = new Edge<>(a, d);
-        ab.setLabel(33);
+        ad2.setLabel(33);
         Edge<Integer> ae = new Edge<>(a, e);
-        ab.setLabel(4);
+        ae.setLabel(4);
         Edge<Integer> ae2 = new Edge<>(a, e);
-        ab.setLabel(44);
+        ae2.setLabel(44);
         Edge<Integer> af = new Edge<>(a, f);
-        ab.setLabel(5);
+        af.setLabel(5);
         Edge<Integer> af2 = new Edge<>(a, f);
-        ab.setLabel(55);
+        af2.setLabel(55);
 
         graph.addEdges(ab, ab2, ac, ac2, ad, ad2, ae, ae2, af, af2);
 
