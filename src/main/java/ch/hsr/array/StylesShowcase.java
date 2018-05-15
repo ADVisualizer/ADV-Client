@@ -10,9 +10,7 @@ public class StylesShowcase {
     // instantiate data structure container
     private static final int LENGTH = 10;
     private static final Boolean[] array = new Boolean[LENGTH];
-    private static final ArrayModule<Boolean> arrayModule =
-            new ArrayModule<>("StylesShowcase", array);
-
+    private static final ArrayModule arrayModule = new ArrayModule("StylesShowcase", array);
 
     public static void main(String[] args) throws ADVException {
         ADV.launch(args);

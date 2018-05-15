@@ -13,9 +13,7 @@ import ch.hsr.adv.lib.core.logic.util.ADVException;
 public class ADVElementsShowcase {
     // instantiate data structure container
     private static final String[] array = new String[5];
-    private static final ArrayModule<String> arrayModule =
-            new ArrayModule<>("ADV Elements Showcase", array);
-
+    private static final ArrayModule arrayModule = new ArrayModule("ADV Elements Showcase", array);
 
     public static void main(String[] args) throws ADVException {
 
@@ -70,7 +68,7 @@ public class ADVElementsShowcase {
         ADV.disconnect();
     }
 
-    private static void setCurrentItem(int i, ADVStyle style){
+    private static void setCurrentItem(int i, ADVStyle style) {
         arrayModule.getStyleMap().put(i, style);
     }
 }

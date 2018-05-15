@@ -13,8 +13,7 @@ public class LinearSearch {
 
     // instantiate data structure container
     private static final Integer[] array = new Integer[7];
-    private static final ArrayModule<Integer> arrayModule =
-            new ArrayModule<>("LinearSearch", array);
+    private static final ArrayModule arrayModule = new ArrayModule("LinearSearch", array);
 
     public static void main(String[] args) throws ADVException, InterruptedException {
 

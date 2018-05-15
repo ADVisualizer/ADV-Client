@@ -1,11 +1,11 @@
 package ch.hsr.graph;
 
 import ch.hsr.adv.lib.bootstrapper.ADV;
-import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVInfoStyle;
 import ch.hsr.adv.lib.core.logic.util.ADVException;
 import ch.hsr.adv.lib.graph.logic.GraphModule;
-import ch.hsr.adv.lib.graph.logic.domain.ADVVertex;
-import ch.hsr.graph.model.MyGraph;
+import ch.hsr.graph.model.Edge;
+import ch.hsr.graph.model.Graph;
+import ch.hsr.graph.model.Vertex;
 
 public class NormalGraph {
 
@@ -15,33 +15,38 @@ public class NormalGraph {
         // throws an exception if something didn't work as expected
         ADV.launch(args);
 
-        MyGraph graph = new MyGraph();
-        GraphModule<String, Integer> module = new GraphModule<>("Normal Graph Session", graph);
-     //   ADV.snapshot(module, "Initial empty graph");
+        Graph graph = new Graph();
+        GraphModule module = new GraphModule("Normal Graph Session", graph);
 
-        ADVVertex<String> a = graph.insertVertex("A");
+        Vertex<String> a = new Vertex<>("A");
         a.setFixedPosX(60);
         a.setFixedPosY(50);
-        ADVVertex<String> b = graph.insertVertex("B");
+        Vertex<String> b = new Vertex<>("B");
         b.setFixedPosX(140);
         b.setFixedPosY(50);
-        ADVVertex<String> c = graph.insertVertex("C");
+        Vertex<String> c = new Vertex<>("C");
         c.setFixedPosX(180);
         c.setFixedPosY(100);
-        ADVVertex<String> d = graph.insertVertex("D");
-        d.setStyle(new ADVInfoStyle());
+        Vertex<String> d = new Vertex<>("D");
         d.setFixedPosX(100);
         d.setFixedPosY(150);
-        ADVVertex<String> e = graph.insertVertex("E");
+        Vertex<String> e = new Vertex<>("E");
         e.setFixedPosX(20);
         e.setFixedPosY(100);
+
+        graph.addVertices(a, b, c, d, e);
+
         ADV.snapshot(module, "Insert vertices");
 
-        graph.insertEdge(1, a, b);
-        graph.insertEdge(2, a, c);
-        graph.insertEdge(3, c, b);
-        graph.insertEdge(4, e, d);
-        graph.insertEdge(5, e, b);
+        Edge<Integer> ab = new Edge<>(a.getId(), b.getId(), true);
+        Edge<Integer> bd = new Edge<>(b.getId(), d.getId(), true);
+        Edge<Integer> de = new Edge<>(d.getId(), e.getId(), true);
+        Edge<Integer> ae = new Edge<>(a.getId(), e.getId(), true);
+        Edge<Integer> cd = new Edge<>(c.getId(), d.getId(), true);
+        Edge<Integer> ec = new Edge<>(e.getId(), c.getId(), true);
+
+        graph.addEdges(ab, bd, de, ae, cd, ec);
+
         ADV.snapshot(module, "Insert edges");
 
         ADV.disconnect();

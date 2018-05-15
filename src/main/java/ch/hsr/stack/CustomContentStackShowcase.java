@@ -18,7 +18,7 @@ public class CustomContentStackShowcase {
 
     private void showStackFeatures() throws ADVException {
         ADVStack<StackContent> stack = new Stack<>();
-        ADVModule module = new StackModule<>("Stack", stack);
+        ADVModule module = new StackModule("Stack", stack);
 
         stack.push(new StackContent(1, "1", "2"));
         stack.push(new StackContent(2, "abc", "efg"));
