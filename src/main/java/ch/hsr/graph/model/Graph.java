@@ -13,6 +13,7 @@ public class Graph implements ADVGraph<Vertex, Edge> {
 
     @Override
     public void addVertex(Vertex vertex) {
+        vertex.setGraph(this);
         vertices.put(vertex.getId(), vertex);
     }
 
@@ -103,4 +104,5 @@ public class Graph implements ADVGraph<Vertex, Edge> {
 
         return neighbors;
     }
+
 }

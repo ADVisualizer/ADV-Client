@@ -1,6 +1,7 @@
 package ch.hsr.graph.model;
 
 import ch.hsr.adv.lib.core.logic.domain.styles.ADVStyle;
+import ch.hsr.adv.lib.graph.logic.domain.ADVGraph;
 import ch.hsr.adv.lib.graph.logic.domain.ADVVertex;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -10,6 +11,7 @@ public class Vertex<T> implements ADVVertex<T> {
     private static final transient AtomicInteger ID_COUNTER = new AtomicInteger(0);
 
     private long id;
+    private ADVGraph<Vertex, Edge> graph;
     private T content;
     private ADVStyle style;
     private int fixedPosX;
@@ -21,6 +23,15 @@ public class Vertex<T> implements ADVVertex<T> {
     public Vertex(T label) {
         this.content = label;
         this.id = ID_COUNTER.incrementAndGet();
+    }
+
+    @Override
+    public ADVGraph getGraph() {
+        return graph;
+    }
+
+    public void setGraph(ADVGraph graph) {
+        this.graph = graph;
     }
 
     @Override
@@ -97,5 +108,12 @@ public class Vertex<T> implements ADVVertex<T> {
     @Override
     public String toString() {
         return content.toString();
+    }
+
+    public Edge getEdgeTo(Vertex<T> target) {
+        return graph.getEdges().stream().filter(
+                e -> e.getTargetElementId() == target.getId() &&
+                        e.getSourceElementId() == this.getId()
+        ).findFirst().get();
     }
 }

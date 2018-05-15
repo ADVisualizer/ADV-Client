@@ -30,42 +30,50 @@ public class DepthFirstSearch {
         graphModule.addChildModule(stackModule);
 
         Vertex<String> a = new Vertex<>("A");
-        a.setFixedPosX(60);
-        a.setFixedPosY(50);
+        a.setFixedPosX(20);
+        a.setFixedPosY(20);
         Vertex<String> b = new Vertex<>("B");
-        b.setFixedPosX(140);
-        b.setFixedPosY(50);
+        b.setFixedPosX(100);
+        b.setFixedPosY(20);
         Vertex<String> c = new Vertex<>("C");
         c.setFixedPosX(180);
-        c.setFixedPosY(100);
+        c.setFixedPosY(20);
         Vertex<String> d = new Vertex<>("D");
-        d.setFixedPosX(100);
-        d.setFixedPosY(150);
+        d.setFixedPosX(20);
+        d.setFixedPosY(80);
         Vertex<String> e = new Vertex<>("E");
-        e.setFixedPosX(20);
-        e.setFixedPosY(100);
+        e.setFixedPosX(100);
+        e.setFixedPosY(80);
+        Vertex<String> f = new Vertex<>("F");
+        f.setFixedPosX(180);
+        f.setFixedPosY(80);
 
-        graph.addVertices(a, b, c, d, e);
+        graph.addVertices(a, b, c, d, e, f);
 
-        Edge<Integer> ab = new Edge<>(a.getId(), b.getId(), true);
-        Edge<Integer> bd = new Edge<>(b.getId(), d.getId(), true);
-        Edge<Integer> de = new Edge<>(d.getId(), e.getId(), true);
-        Edge<Integer> ae = new Edge<>(a.getId(), e.getId(), true);
-        Edge<Integer> cd = new Edge<>(c.getId(), d.getId(), true);
-        Edge<Integer> ec = new Edge<>(e.getId(), c.getId(), true);
+        Edge<Integer> ab = new Edge<>(a, b, true);
+        Edge<Integer> ad = new Edge<>(a, d, true);
+        Edge<Integer> be = new Edge<>(b, e, true);
+        Edge<Integer> db = new Edge<>(d, b, true);
+        Edge<Integer> ed = new Edge<>(e, d, true);
+        Edge<Integer> ec = new Edge<>(e, c, true);
+        Edge<Integer> cf = new Edge<>(c, f, true);
+        Edge<Integer> ff = new Edge<>(f, f, true);
 
-        graph.addEdges(ab, bd, de, ae, cd, ec);
+        graph.addEdges(ab, ad, be, db, ed, ec, cf, ff);
 
         dfs(a);
 
         ADV.disconnect();
     }
 
+
     public static void dfs(Vertex startNode) throws ADVException {
         stack.push(startNode);
         startNode.setStyle(new ADVSuccessStyle());
         startNode.setVisited(true);
         ADV.snapshot(graphModule);
+
+        int visitationOrder = 0;
 
         while (!stack.isEmpty()) {
 
@@ -74,18 +82,24 @@ public class DepthFirstSearch {
             ADV.snapshot(graphModule);
 
             List<ADVVertex> neighbours = graph.getNeighbors(element);
-            for (int i = 0; i < neighbours.size(); i++) {
-                Vertex n = (Vertex) neighbours.get(i);
-                if (n != null && !n.isVisited()) {
-                    n.setStyle(new ADVErrorStyle());
-                    stack.push(n);
-                    n.setVisited(true);
-                    ADV.snapshot(graphModule, "Snapshot " + i);
+            for (ADVVertex n : neighbours) {
+                Vertex neighbour = (Vertex) n;
+
+                if (!neighbour.isVisited()) {
+
+                    stack.push(neighbour);
+                    neighbour.setVisited(true);
+
+                    Edge edge = element.getEdgeTo(neighbour);
+                    edge.setStyle(new ADVErrorStyle());
+                    edge.setLabel(visitationOrder++);
+
+                    ADV.snapshot(graphModule);
                 }
             }
+
         }
     }
-
 
 }
 
