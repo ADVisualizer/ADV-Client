@@ -93,4 +93,9 @@ public class Vertex<T> implements ADVVertex<T> {
     public void setVisited(boolean visited) {
         this.visited = visited;
     }
+
+    @Override
+    public String toString() {
+        return content.toString();
+    }
 }
