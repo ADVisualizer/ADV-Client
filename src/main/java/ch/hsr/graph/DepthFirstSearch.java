@@ -1,4 +1,4 @@
-package ch.hsr.dfs;
+package ch.hsr.graph;
 
 import ch.hsr.adv.lib.bootstrapper.ADV;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
