@@ -114,6 +114,6 @@ public class Vertex<T> implements ADVVertex<T> {
         return graph.getEdges().stream().filter(
                 e -> e.getTargetElementId() == target.getId() &&
                         e.getSourceElementId() == this.getId()
-        ).findFirst().get();
+        ).findFirst().orElse(null);
     }
 }

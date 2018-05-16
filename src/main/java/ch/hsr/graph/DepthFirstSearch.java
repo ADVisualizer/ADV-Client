@@ -59,8 +59,11 @@ public class DepthFirstSearch {
         Edge<Integer> ec = new Edge<>(e, c, true);
         Edge<Integer> cf = new Edge<>(c, f, true);
         Edge<Integer> ff = new Edge<>(f, f, true);
+        Edge<Integer> fa = new Edge<>(f, a, true);
+        Edge<Integer> af = new Edge<>(a, f, true);
 
-        graph.addEdges(ab, ad, be, db, ed, ec, cf, ff);
+
+        graph.addEdges(ab, ad, be, db, ed, ec, cf, ff, fa, af);
 
         dfs(a);
 
@@ -98,7 +101,7 @@ public class DepthFirstSearch {
                 Edge edge = current.getEdgeTo(next);
                 edge.setStyle(new ADVErrorStyle());
                 edge.setLabel(visitationOrder++);
-            } catch (EmptyStackException e) {
+            } catch (Exception e) {
             }
         }
     }
