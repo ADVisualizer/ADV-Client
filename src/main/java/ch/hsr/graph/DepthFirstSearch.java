@@ -7,6 +7,7 @@ import ch.hsr.adv.lib.core.logic.util.ADVException;
 import ch.hsr.adv.lib.graph.logic.GraphModule;
 import ch.hsr.adv.lib.graph.logic.domain.ADVVertex;
 import ch.hsr.adv.lib.stack.logic.StackModule;
+import ch.hsr.adv.lib.stack.logic.domain.EmptyStackException;
 import ch.hsr.graph.model.Edge;
 import ch.hsr.graph.model.Graph;
 import ch.hsr.graph.model.Vertex;
@@ -66,38 +67,39 @@ public class DepthFirstSearch {
         ADV.disconnect();
     }
 
-
     public static void dfs(Vertex startNode) throws ADVException {
         stack.push(startNode);
-        startNode.setStyle(new ADVSuccessStyle());
-        startNode.setVisited(true);
         ADV.snapshot(graphModule);
 
         int visitationOrder = 0;
 
         while (!stack.isEmpty()) {
 
-            Vertex<String> element = stack.pop();
-            element.setStyle(new ADVSuccessStyle());
+            Vertex<String> current = stack.pop();
+            current.setStyle(new ADVSuccessStyle());
+            current.setVisited(true);
             ADV.snapshot(graphModule);
 
-            List<ADVVertex> neighbours = graph.getNeighbors(element);
+            List<ADVVertex> neighbours = graph.getNeighbors(current);
             for (ADVVertex n : neighbours) {
                 Vertex neighbour = (Vertex) n;
 
                 if (!neighbour.isVisited()) {
-
-                    stack.push(neighbour);
                     neighbour.setVisited(true);
-
-                    Edge edge = element.getEdgeTo(neighbour);
-                    edge.setStyle(new ADVErrorStyle());
-                    edge.setLabel(visitationOrder++);
+                    stack.push(neighbour);
 
                     ADV.snapshot(graphModule);
                 }
             }
 
+            // display path
+            try {
+                Vertex<String> next = stack.top();
+                Edge edge = current.getEdgeTo(next);
+                edge.setStyle(new ADVErrorStyle());
+                edge.setLabel(visitationOrder++);
+            } catch (EmptyStackException e) {
+            }
         }
     }
 
