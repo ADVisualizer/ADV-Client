@@ -10,8 +10,7 @@ import ch.hsr.adv.lib.core.logic.util.ADVException;
 public class BubbleSort {
     // instantiate data structure container
     private static final Integer[] array = new Integer[6];
-    private static final ArrayModule<Integer> arrayModule =
-            new ArrayModule<>("BubbleSort", array);
+    private static final ArrayModule arrayModule = new ArrayModule("BubbleSort", array);
 
     public static void main(String[] args) throws ADVException {
 

@@ -13,7 +13,7 @@ public class StackShowcase {
         ADV.launch(args);
 
         ADVStack<Integer> stack = new Stack<>();
-        ADVModule module = new StackModule<>("Stack", stack);
+        ADVModule module = new StackModule("Stack", stack);
 
         ADV.snapshot(module, "Empty stack");
         stack.push(1);

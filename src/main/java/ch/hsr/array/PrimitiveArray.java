@@ -8,8 +8,7 @@ import ch.hsr.adv.lib.core.logic.util.ADVException;
 public class PrimitiveArray {
     // instantiate data structure container
     private static final Integer[] primitiveArray = new Integer[10];
-    private static final ArrayModule<Integer> arrayModule =
-            new ArrayModule<>("Primitive Array", primitiveArray);
+    private static final ArrayModule arrayModule = new ArrayModule("Primitive Array", primitiveArray);
 
 
     public static void main(String[] args) throws ADVException {
