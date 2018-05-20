@@ -1,6 +1,6 @@
 package ch.hsr.graph.model;
 
-import ch.hsr.adv.lib.core.logic.domain.styles.ADVStyle;
+import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
 import ch.hsr.adv.lib.graph.logic.domain.ADVEdge;
 
 public class Edge<E> implements ADVEdge<E> {
