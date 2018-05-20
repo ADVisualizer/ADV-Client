@@ -1,8 +1,8 @@
 package ch.hsr.stack;
 
+import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.lib.bootstrapper.ADV;
 import ch.hsr.adv.lib.core.logic.ADVModule;
-import ch.hsr.adv.lib.core.logic.util.ADVException;
 import ch.hsr.adv.lib.stack.logic.StackModule;
 import ch.hsr.adv.lib.stack.logic.domain.ADVStack;
 import ch.hsr.stack.model.Stack;
