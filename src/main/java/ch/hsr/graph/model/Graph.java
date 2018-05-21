@@ -1,7 +1,7 @@
 package ch.hsr.graph.model;
 
-import ch.hsr.adv.lib.graph.logic.domain.ADVGraph;
-import ch.hsr.adv.lib.graph.logic.domain.ADVVertex;
+import ch.hsr.adv.commons.graph.logic.domain.ADVGraph;
+import ch.hsr.adv.commons.graph.logic.domain.ADVVertex;
 
 import java.util.*;
 import java.util.stream.Collectors;
