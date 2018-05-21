@@ -1,7 +1,7 @@
 package ch.hsr.stack.model;
 
 import ch.hsr.adv.lib.stack.logic.domain.ADVStack;
-import ch.hsr.adv.lib.stack.logic.domain.EmptyStackException;
+import ch.hsr.adv.lib.stack.logic.exceptions.EmptyStackException;
 
 public class Stack<T> implements ADVStack<T> {
 
