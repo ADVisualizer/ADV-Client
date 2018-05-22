@@ -4,30 +4,30 @@ import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.commons.graph.logic.domain.ADVVertex;
 import ch.hsr.adv.lib.bootstrapper.ADV;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
+import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVInfoStyle;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVSuccessStyle;
 import ch.hsr.adv.lib.graph.logic.domain.GraphModule;
-import ch.hsr.adv.lib.stack.logic.StackModule;
+import ch.hsr.adv.lib.queue.logic.QueueModule;
+import ch.hsr.adv.lib.queue.logic.domain.ADVQueue;
 import ch.hsr.graph.model.Edge;
 import ch.hsr.graph.model.Graph;
 import ch.hsr.graph.model.Vertex;
-import ch.hsr.stack.model.Stack;
+import ch.hsr.queue.model.FIFOQueue;
 
 import java.util.List;
 
-
-public class DepthFirstSearch {
-
-    private static final Stack<Vertex<String>> stack = new Stack<>();
+public class BreadthFirstSearch {
+    private static final ADVQueue<Vertex<String>> queue = new FIFOQueue<>();
     private static final Graph graph = new Graph();
-    private static final GraphModule graphModule = new GraphModule("Depth First Search", graph);
+    private static final GraphModule graphModule = new GraphModule("Breath First Search", graph);
 
     public static void main(String[] args) throws ADVException {
 
         ADV.launch(args);
 
         // initiate modules
-        StackModule stackModule = new StackModule(stack);
-        graphModule.addChildModule(stackModule);
+        QueueModule queueModule = new QueueModule(queue);
+        graphModule.addChildModule(queueModule);
 
         Vertex<String> a = new Vertex<>("A");
         a.setFixedPosX(20);
@@ -50,6 +50,7 @@ public class DepthFirstSearch {
 
         graph.addVertices(a, b, c, d, e, f);
 
+
         Edge<Integer> ab = new Edge<>(a, b, true);
         Edge<Integer> ad = new Edge<>(a, d, true);
         Edge<Integer> be = new Edge<>(b, e, true);
@@ -62,47 +63,54 @@ public class DepthFirstSearch {
 
         graph.addEdges(ab, ad, be, db, ed, ec, cf, ff);
 
-        dfs(a);
+        bfs(a);
 
         ADV.disconnect();
     }
 
-    private static void dfs(Vertex startNode) throws ADVException {
-        stack.push(startNode);
-        ADV.snapshot(graphModule);
+    private static void bfs(Vertex startNode) throws ADVException {
+        // initialize bfs
+        queue.insert(startNode);
+        startNode.setStyle(new ADVInfoStyle());
+        startNode.setVisited(true);
+        ADV.snapshot(graphModule, "Initial state");
 
+        Vertex<String> current = startNode;
+
+        ADVQueue<Edge> path = new FIFOQueue<>();
         int visitationOrder = 0;
 
-        while (!stack.isEmpty()) {
-
-            Vertex<String> current = stack.pop();
+        // start bfs
+        while (!queue.isEmpty()) {
+            // show path
+            current = queue.removeMin();
             current.setStyle(new ADVSuccessStyle());
-            current.setVisited(true);
-            ADV.snapshot(graphModule);
+            if (!path.isEmpty()) {
+                Edge currentEdge = path.removeMin();
+                currentEdge.setStyle(new ADVErrorStyle());
+                currentEdge.setLabel(visitationOrder++);
+            }
+            ADV.snapshot(graphModule, "Go to: " + current.toString());
 
+            // add neighbours to queue
             List<ADVVertex> neighbours = graph.getNeighbors(current);
             for (ADVVertex n : neighbours) {
                 Vertex neighbour = (Vertex) n;
 
                 if (!neighbour.isVisited()) {
                     neighbour.setVisited(true);
-                    stack.push(neighbour);
+                    neighbour.setStyle(new ADVInfoStyle());
 
-                    ADV.snapshot(graphModule);
+                    // add to path
+                    Edge edge = current.getEdgeTo(neighbour);
+                    path.insert(edge);
+
+                    queue.insert(neighbour);
+                    ADV.snapshot(graphModule, "visit " + neighbour.toString());
                 }
             }
 
-            // display path
-            try {
-                Vertex<String> next = stack.top();
-                Edge edge = current.getEdgeTo(next);
-                edge.setStyle(new ADVErrorStyle());
-                edge.setLabel(visitationOrder++);
-            } catch (Exception e) {
-            }
+
         }
     }
-
 }
-
-
