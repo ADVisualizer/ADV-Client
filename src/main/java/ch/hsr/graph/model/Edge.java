@@ -1,7 +1,7 @@
 package ch.hsr.graph.model;
 
-import ch.hsr.adv.lib.core.logic.domain.styles.ADVStyle;
-import ch.hsr.adv.lib.graph.logic.domain.ADVEdge;
+import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
+import ch.hsr.adv.commons.graph.logic.domain.ADVEdge;
 
 public class Edge<E> implements ADVEdge<E> {
 
@@ -18,7 +18,7 @@ public class Edge<E> implements ADVEdge<E> {
     public Edge(Vertex sourceVertex, Vertex targetVertex, boolean directed) {
         this(sourceVertex.getId(), targetVertex.getId(), directed);
     }
-    
+
     public Edge(long sourceVertexId, long targetVertexId) {
         this(sourceVertexId, targetVertexId, false);
     }
@@ -40,8 +40,18 @@ public class Edge<E> implements ADVEdge<E> {
     }
 
     @Override
+    public void setSourceElementId(long sourceVertexId) {
+        this.sourceVertexId = sourceVertexId;
+    }
+
+    @Override
     public long getTargetElementId() {
         return targetVertexId;
+    }
+
+    @Override
+    public void setTargetElementId(long targetVertexId) {
+        this.targetVertexId = targetVertexId;
     }
 
     @Override

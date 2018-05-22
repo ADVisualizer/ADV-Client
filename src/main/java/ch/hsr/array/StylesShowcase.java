@@ -1,10 +1,15 @@
 package ch.hsr.array;
 
+import ch.hsr.adv.commons.core.logic.domain.styles.*;
+import ch.hsr.adv.commons.core.logic.domain.styles.presets.ADVDefaultStyle;
+import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.lib.array.logic.ArrayModule;
 import ch.hsr.adv.lib.bootstrapper.ADV;
-import ch.hsr.adv.lib.core.logic.domain.styles.*;
-import ch.hsr.adv.lib.core.logic.domain.styles.presets.*;
-import ch.hsr.adv.lib.core.logic.util.ADVException;
+import ch.hsr.adv.lib.core.logic.domain.styles.ADVEnumStyle;
+import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
+import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVInfoStyle;
+import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVSuccessStyle;
+import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVWarningStyle;
 
 public class StylesShowcase {
     // instantiate data structure container
@@ -38,7 +43,7 @@ public class StylesShowcase {
 
         // -------- snapshot 3 -------- //
         setStyle(8, new ADVValueStyle(0xff66ff, ADVStrokeStyle.DASHED, 4));
-        setStyle(9, new ADVValueStyle(0xcc9900, ADVStrokeStyle.DOTTED, 2, 0xffffcc));
+        setStyle(9, new ADVValueStyle(0xffffcc, 0xcc9900, ADVStrokeStyle.DOTTED, 2));
         ADV.snapshot(arrayModule, "Using value style.");
     }
 

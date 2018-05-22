@@ -1,13 +1,13 @@
 package ch.hsr.array;
 
+import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
+import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.lib.array.logic.ArrayModule;
 import ch.hsr.adv.lib.bootstrapper.ADV;
-import ch.hsr.adv.lib.core.logic.domain.styles.ADVStyle;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVInfoStyle;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVSuccessStyle;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVWarningStyle;
-import ch.hsr.adv.lib.core.logic.util.ADVException;
 
 
 public class ADVElementsShowcase {

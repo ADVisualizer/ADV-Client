@@ -1,13 +1,12 @@
 package ch.hsr.graph;
 
+import ch.hsr.adv.commons.core.logic.util.ADVException;
+import ch.hsr.adv.commons.graph.logic.domain.ADVVertex;
 import ch.hsr.adv.lib.bootstrapper.ADV;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVSuccessStyle;
-import ch.hsr.adv.lib.core.logic.util.ADVException;
-import ch.hsr.adv.lib.graph.logic.GraphModule;
-import ch.hsr.adv.lib.graph.logic.domain.ADVVertex;
+import ch.hsr.adv.lib.graph.logic.domain.GraphModule;
 import ch.hsr.adv.lib.stack.logic.StackModule;
-import ch.hsr.adv.lib.stack.logic.domain.EmptyStackException;
 import ch.hsr.graph.model.Edge;
 import ch.hsr.graph.model.Graph;
 import ch.hsr.graph.model.Vertex;

@@ -1,8 +1,10 @@
 package ch.hsr.multi;
 
+
+
+import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.lib.bootstrapper.ADV;
-import ch.hsr.adv.lib.core.logic.util.ADVException;
-import ch.hsr.adv.lib.graph.logic.GraphModule;
+import ch.hsr.adv.lib.graph.logic.domain.GraphModule;
 import ch.hsr.adv.lib.stack.logic.StackModule;
 import ch.hsr.graph.model.Edge;
 import ch.hsr.graph.model.Graph;
