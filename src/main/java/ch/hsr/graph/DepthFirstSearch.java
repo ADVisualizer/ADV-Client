@@ -58,11 +58,9 @@ public class DepthFirstSearch {
         Edge<Integer> ec = new Edge<>(e, c, true);
         Edge<Integer> cf = new Edge<>(c, f, true);
         Edge<Integer> ff = new Edge<>(f, f, true);
-        Edge<Integer> fa = new Edge<>(f, a, true);
-        Edge<Integer> af = new Edge<>(a, f, true);
 
 
-        graph.addEdges(ab, ad, be, db, ed, ec, cf, ff, fa, af);
+        graph.addEdges(ab, ad, be, db, ed, ec, cf, ff);
 
         dfs(a);
 
