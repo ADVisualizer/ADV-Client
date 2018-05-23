@@ -3,10 +3,9 @@ package ch.hsr.graph;
 import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.commons.graph.logic.domain.ADVVertex;
 import ch.hsr.adv.lib.bootstrapper.ADV;
-import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVInfoStyle;
-import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVSuccessStyle;
 import ch.hsr.adv.lib.graph.logic.domain.GraphModule;
+import ch.hsr.adv.lib.graph.logic.domain.styles.presets.ADVVisitedNodeStyle;
 import ch.hsr.adv.lib.queue.logic.QueueModule;
 import ch.hsr.adv.lib.queue.logic.domain.ADVQueue;
 import ch.hsr.graph.model.Edge;
@@ -84,10 +83,10 @@ public class BreadthFirstSearch {
         while (!queue.isEmpty()) {
             // show path
             current = queue.removeMin();
-            current.setStyle(new ADVSuccessStyle());
+            current.setStyle(new ADVVisitedNodeStyle());
             if (!path.isEmpty()) {
                 Edge currentEdge = path.removeMin();
-                currentEdge.setStyle(new ADVErrorStyle());
+                currentEdge.setStyle(new ADVVisitedNodeStyle());
                 currentEdge.setLabel(visitationOrder++);
             }
             ADV.snapshot(graphModule, "Go to: " + current.toString());

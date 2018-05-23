@@ -3,10 +3,10 @@ package ch.hsr.graph;
 import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.commons.graph.logic.domain.ADVVertex;
 import ch.hsr.adv.lib.bootstrapper.ADV;
-import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
-import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVInfoStyle;
-import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVSuccessStyle;
 import ch.hsr.adv.lib.graph.logic.domain.GraphModule;
+import ch.hsr.adv.lib.graph.logic.domain.styles.presets.ADVDiscoveryEdgeStyle;
+import ch.hsr.adv.lib.graph.logic.domain.styles.presets.ADVForwardEdgeStyle;
+import ch.hsr.adv.lib.graph.logic.domain.styles.presets.ADVVisitedNodeStyle;
 import ch.hsr.adv.lib.stack.logic.StackModule;
 import ch.hsr.graph.model.Edge;
 import ch.hsr.graph.model.Graph;
@@ -77,7 +77,7 @@ public class DepthFirstSearch {
         while (!stack.isEmpty()) {
 
             Vertex<String> current = stack.pop();
-            current.setStyle(new ADVSuccessStyle());
+            current.setStyle(new ADVVisitedNodeStyle());
             current.setVisited(true);
             ADV.snapshot(graphModule);
 
@@ -87,7 +87,7 @@ public class DepthFirstSearch {
 
                 if (!neighbour.isVisited()) {
                     neighbour.setVisited(true);
-                    neighbour.setStyle(new ADVInfoStyle());
+                    neighbour.setStyle(new ADVDiscoveryEdgeStyle());
                     stack.push(neighbour);
 
                     ADV.snapshot(graphModule);
@@ -98,7 +98,7 @@ public class DepthFirstSearch {
             try {
                 Vertex<String> next = stack.top();
                 Edge edge = current.getEdgeTo(next);
-                edge.setStyle(new ADVErrorStyle());
+                edge.setStyle(new ADVForwardEdgeStyle());
                 edge.setLabel(visitationOrder++);
             } catch (Exception e) {
             }
