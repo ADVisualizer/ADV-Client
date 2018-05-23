@@ -4,6 +4,7 @@ import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.commons.graph.logic.domain.ADVVertex;
 import ch.hsr.adv.lib.bootstrapper.ADV;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
+import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVInfoStyle;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVSuccessStyle;
 import ch.hsr.adv.lib.graph.logic.domain.GraphModule;
 import ch.hsr.adv.lib.stack.logic.StackModule;
@@ -86,6 +87,7 @@ public class DepthFirstSearch {
 
                 if (!neighbour.isVisited()) {
                     neighbour.setVisited(true);
+                    neighbour.setStyle(new ADVInfoStyle());
                     stack.push(neighbour);
 
                     ADV.snapshot(graphModule);
