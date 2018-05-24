@@ -82,11 +82,11 @@ public class LabeledEdgesShowcase {
         Edge<Integer> af2 = new Edge<>(a, f);
         af2.setLabel(55);
         Edge<Integer> ag2 = new Edge<>(a, g);
-        ag.setLabel(66);
+        ag2.setLabel(66);
         Edge<Integer> ah2= new Edge<>(a, h);
-        ah.setLabel(77);
+        ah2.setLabel(77);
         Edge<Integer> ai2 = new Edge<>(a, i);
-        ai.setLabel(88);
+        ai2.setLabel(88);
 
         graph.addEdges(ab2, ac2, ad2, ae2, af2, ag2, ah2, ai2);
         ADV.snapshot(module, "Insert duplicated edges");
