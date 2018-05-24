@@ -19,7 +19,7 @@ import java.util.List;
 public class BreadthFirstSearch {
     private static final ADVQueue<Vertex<String>> queue = new FIFOQueue<>();
     private static final Graph graph = new Graph();
-    private static final GraphModule graphModule = new GraphModule("Breath First Search", graph);
+    private static final GraphModule graphModule = new GraphModule("Breadth First Search", graph);
 
     public static void main(String[] args) throws ADVException {
 
