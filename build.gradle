@@ -6,12 +6,12 @@ apply plugin: 'java'
 sourceCompatibility = 1.9
 
 repositories {
-    jcenter()
     mavenLocal()
-    mavenCentral()
     maven {
         url "https://dl.bintray.com/adv/adv"
     }
+    jcenter()
+    mavenCentral()
 }
 
 dependencies {

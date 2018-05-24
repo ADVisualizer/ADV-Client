@@ -1,7 +1,7 @@
 package ch.hsr.array;
 
 import ch.hsr.adv.commons.core.logic.domain.styles.*;
-import ch.hsr.adv.commons.core.logic.domain.styles.presets.ADVDefaultStyle;
+import ch.hsr.adv.commons.core.logic.domain.styles.presets.ADVDefaultElementStyle;
 import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.lib.array.logic.ArrayModule;
 import ch.hsr.adv.lib.bootstrapper.ADV;
@@ -10,6 +10,7 @@ import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVInfoStyle;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVSuccessStyle;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVWarningStyle;
+import ch.hsr.adv.lib.graph.logic.domain.styles.presets.*;
 
 public class StylesShowcase {
     // instantiate data structure container
@@ -25,18 +26,24 @@ public class StylesShowcase {
         }
 
         // -------- snapshot 1 -------- //
-        setStyle(0, new ADVDefaultStyle());
+        setStyle(0, new ADVDefaultElementStyle());
         setStyle(1, new ADVErrorStyle());
         setStyle(2, new ADVInfoStyle());
         setStyle(3, new ADVSuccessStyle());
         setStyle(4, new ADVWarningStyle());
+        setStyle(5, new ADVVisitedNodeStyle());
+        setStyle(6, new ADVBackEdgeStyle());
+        setStyle(7, new ADVCrossEdgeStyle());
+        setStyle(8, new ADVDiscoveryEdgeStyle());
+        setStyle(9, new ADVForwardEdgeStyle());
+
         ADV.snapshot(arrayModule, "Using preset styles.");
 
         // -------- snapshot 2 -------- //
         setStyle(5, new ADVEnumStyle(
                 ADVColor.ORANGE, ADVStrokeStyle.DASHED, ADVStrokeThickness.THIN));
         setStyle(6, new ADVEnumStyle(
-                ADVColor.LIGHTGREY, ADVStrokeStyle.DOTTED, ADVStrokeThickness.MEDIUM, ADVColor.DARKGREY));
+                ADVColor.GRAY_LIGHT, ADVStrokeStyle.DOTTED, ADVStrokeThickness.MEDIUM, ADVColor.GRAY_DARK));
         setStyle(7, new ADVEnumStyle(
                 ADVColor.YELLOW, ADVStrokeStyle.SOLID, ADVStrokeThickness.MEDIUM, ADVColor.RED));
         ADV.snapshot(arrayModule, "Using enum style.");
