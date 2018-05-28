@@ -108,8 +108,6 @@ public class BreadthFirstSearch {
                     ADV.snapshot(graphModule, "visit " + neighbour.toString());
                 }
             }
-
-
         }
     }
 }
