@@ -63,8 +63,6 @@ public class BreadthFirstSearch {
         graph.addEdges(ab, ad, be, db, ed, ec, cf, ff);
 
         bfs(a);
-
-        ADV.disconnect();
     }
 
     private static void bfs(Vertex startNode) throws ADVException {

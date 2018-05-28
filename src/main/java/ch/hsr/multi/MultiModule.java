@@ -42,7 +42,6 @@ public class MultiModule {
         fillStack(stackModule2);
 
         ADV.snapshot(graphModule, "Showing 4 Modules simultaniously");
-        ADV.disconnect();
     }
 
     private static void fillStack(StackModule stackModule) {

@@ -32,7 +32,6 @@ public class StackShowcase {
         stack.top();
         System.out.println(stack.toString());
         ADV.snapshot(module, "Top does not change the stack values");
-        ADV.disconnect();
     }
 }
 

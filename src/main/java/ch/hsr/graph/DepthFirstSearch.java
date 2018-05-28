@@ -64,8 +64,6 @@ public class DepthFirstSearch {
         graph.addEdges(ab, ad, be, db, ed, ec, cf, ff);
 
         dfs(a);
-
-        ADV.disconnect();
     }
 
     private static void dfs(Vertex startNode) throws ADVException {
