@@ -3,6 +3,7 @@ package ch.hsr.graph;
 import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.commons.graph.logic.domain.ADVVertex;
 import ch.hsr.adv.lib.bootstrapper.ADV;
+import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
 import ch.hsr.adv.lib.graph.logic.domain.GraphModule;
 import ch.hsr.adv.lib.graph.logic.domain.styles.presets.ADVDiscoveryEdgeStyle;
 import ch.hsr.adv.lib.graph.logic.domain.styles.presets.ADVForwardEdgeStyle;
@@ -68,6 +69,8 @@ public class DepthFirstSearch {
 
     private static void dfs(Vertex startNode) throws ADVException {
         stack.push(startNode);
+        startNode.setStyle(new ADVErrorStyle());
+
         ADV.snapshot(graphModule);
 
         int visitationOrder = 0;
@@ -85,7 +88,7 @@ public class DepthFirstSearch {
 
                 if (!neighbour.isVisited()) {
                     neighbour.setVisited(true);
-                    neighbour.setStyle(new ADVDiscoveryEdgeStyle());
+                    neighbour.setStyle(new ADVErrorStyle());
                     stack.push(neighbour);
 
                     ADV.snapshot(graphModule);
@@ -96,7 +99,7 @@ public class DepthFirstSearch {
             try {
                 Vertex<String> next = stack.top();
                 Edge edge = current.getEdgeTo(next);
-                edge.setStyle(new ADVForwardEdgeStyle());
+                edge.setStyle(new ADVDiscoveryEdgeStyle());
                 edge.setLabel(visitationOrder++);
             } catch (Exception e) {
             }
