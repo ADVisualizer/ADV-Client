@@ -4,6 +4,8 @@ import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.lib.array.logic.ArrayModule;
 import ch.hsr.adv.lib.bootstrapper.ADV;
 
+import java.util.Arrays;
+
 
 public class PrimitiveArray {
     // instantiate data structure container
@@ -15,19 +17,11 @@ public class PrimitiveArray {
 
         ADV.launch(args);
 
-        primitiveArray[0] = 1;
-        primitiveArray[3] = 1;
-        primitiveArray[1] = 3;
-        primitiveArray[5] = 4;
-        ADV.snapshot(arrayModule, "First Snapshot");
-
         primitiveArray[0] = 0;
         primitiveArray[1] = 1;
-        primitiveArray[2] = 2;
         primitiveArray[3] = 3;
-        ADV.snapshot(arrayModule, "Second Snapshot");
-
-        ADV.disconnect();
+        primitiveArray[5] = 5;
+        ADV.snapshot(arrayModule, "Empty value are default initialized with null");
     }
 }
 
