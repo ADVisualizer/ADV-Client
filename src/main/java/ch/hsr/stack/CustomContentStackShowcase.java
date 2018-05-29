@@ -12,33 +12,24 @@ public class CustomContentStackShowcase {
     public static void main(String[] args) throws ADVException {
         ADV.launch(args);
 
-        CustomContentStackShowcase customStack = new CustomContentStackShowcase();
-        customStack.showStackFeatures();
-    }
-
-    private void showStackFeatures() throws ADVException {
         ADVStack<StackContent> stack = new Stack<>();
         ADVModule module = new StackModule("Stack", stack);
 
         stack.push(new StackContent(1, "1", "2"));
         stack.push(new StackContent(2, "abc", "efg"));
-        System.out.println(stack.toString());
         ADV.snapshot(module, "Pushed initial entries");
 
         stack.pop();
-        System.out.println(stack.toString());
-        ADV.snapshot(module, "Poped entry");
+        ADV.snapshot(module, "Popped entry");
 
         stack.push(new StackContent(3, "33", "what?"));
-        System.out.println(stack.toString());
         ADV.snapshot(module, "Pushed third entry");
 
         stack.top();
-        System.out.println(stack.toString());
         ADV.snapshot(module, "Top does not change the stack values");
     }
 
-    private class StackContent {
+    private static class StackContent {
         int id;
         String value1;
         String value2;

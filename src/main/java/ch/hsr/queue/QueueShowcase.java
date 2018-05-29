@@ -32,6 +32,5 @@ public class QueueShowcase {
 
         queue.min();
         ADV.snapshot(module, "Min does not change the queue values");
-        ADV.disconnect();
     }
 }

@@ -99,7 +99,5 @@ public class LabeledEdgesShowcase {
 
         graph.addEdges(cc, gg);
         ADV.snapshot(module, "Insert self reference edges");
-
-        ADV.disconnect();
     }
 }

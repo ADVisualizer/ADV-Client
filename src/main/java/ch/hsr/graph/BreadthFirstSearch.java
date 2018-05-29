@@ -3,8 +3,9 @@ package ch.hsr.graph;
 import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.commons.graph.logic.domain.ADVVertex;
 import ch.hsr.adv.lib.bootstrapper.ADV;
-import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVInfoStyle;
+import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
 import ch.hsr.adv.lib.graph.logic.domain.GraphModule;
+import ch.hsr.adv.lib.graph.logic.domain.styles.presets.ADVDiscoveryEdgeStyle;
 import ch.hsr.adv.lib.graph.logic.domain.styles.presets.ADVVisitedNodeStyle;
 import ch.hsr.adv.lib.queue.logic.QueueModule;
 import ch.hsr.adv.lib.queue.logic.domain.ADVQueue;
@@ -63,30 +64,29 @@ public class BreadthFirstSearch {
         graph.addEdges(ab, ad, be, db, ed, ec, cf, ff);
 
         bfs(a);
-
-        ADV.disconnect();
     }
 
     private static void bfs(Vertex startNode) throws ADVException {
         // initialize bfs
         queue.insert(startNode);
-        startNode.setStyle(new ADVInfoStyle());
+        startNode.setStyle(new ADVErrorStyle());
         startNode.setVisited(true);
         ADV.snapshot(graphModule, "Initial state");
 
         Vertex<String> current = startNode;
 
-        ADVQueue<Edge> path = new FIFOQueue<>();
         int visitationOrder = 0;
+        ADVQueue<Edge> path = new FIFOQueue<>();
 
         // start bfs
         while (!queue.isEmpty()) {
+
             // show path
             current = queue.removeMin();
             current.setStyle(new ADVVisitedNodeStyle());
             if (!path.isEmpty()) {
                 Edge currentEdge = path.removeMin();
-                currentEdge.setStyle(new ADVVisitedNodeStyle());
+                currentEdge.setStyle(new ADVDiscoveryEdgeStyle());
                 currentEdge.setLabel(visitationOrder++);
             }
             ADV.snapshot(graphModule, "Go to: " + current.toString());
@@ -98,7 +98,7 @@ public class BreadthFirstSearch {
 
                 if (!neighbour.isVisited()) {
                     neighbour.setVisited(true);
-                    neighbour.setStyle(new ADVInfoStyle());
+                    neighbour.setStyle(new ADVErrorStyle());
 
                     // add to path
                     Edge edge = current.getEdgeTo(neighbour);
@@ -108,8 +108,6 @@ public class BreadthFirstSearch {
                     ADV.snapshot(graphModule, "visit " + neighbour.toString());
                 }
             }
-
-
         }
     }
 }
