@@ -4,8 +4,6 @@ import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.lib.array.logic.ArrayModule;
 import ch.hsr.adv.lib.bootstrapper.ADV;
 
-import java.util.Arrays;
-
 
 public class PrimitiveArray {
     // instantiate data structure container

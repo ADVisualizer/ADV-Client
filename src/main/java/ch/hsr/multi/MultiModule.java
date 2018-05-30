@@ -1,82 +1,111 @@
 package ch.hsr.multi;
 
 
-
 import ch.hsr.adv.commons.core.logic.util.ADVException;
+import ch.hsr.adv.lib.array.logic.ArrayModule;
 import ch.hsr.adv.lib.bootstrapper.ADV;
 import ch.hsr.adv.lib.graph.logic.domain.GraphModule;
+import ch.hsr.adv.lib.queue.logic.QueueModule;
 import ch.hsr.adv.lib.stack.logic.StackModule;
 import ch.hsr.graph.model.Edge;
 import ch.hsr.graph.model.Graph;
 import ch.hsr.graph.model.Vertex;
+import ch.hsr.queue.model.FIFOQueue;
 import ch.hsr.stack.model.Stack;
 
 import java.util.Random;
 
 
 public class MultiModule {
-
-    private static final Stack<Integer> stack1 = new Stack<>();
-    private static final Stack<Integer> stack2 = new Stack<>();
+    // Datastructures
+    private static final Stack<Integer> stack = new Stack<>();
+    private static final FIFOQueue<Integer> queue = new FIFOQueue<>();
     private static final Graph graph = new Graph();
-    private static final Graph graph2 = new Graph();
-    private static final GraphModule graphModule = new GraphModule("MultiModule", graph);
-    private static final Random rnd = new Random();
+    private static final Integer[] array = new Integer[5];
+
+    // ADVModules
+    private static final String SESSION_NAME = "Multiple Modules";
+    private static final QueueModule queueModule = new QueueModule(SESSION_NAME, queue);
+    private static final GraphModule graphModule = new GraphModule(SESSION_NAME, graph);
+    private static final StackModule stackModule = new StackModule(SESSION_NAME, stack);
+    private static final ArrayModule arrayModule = new ArrayModule(SESSION_NAME, array);
+
+
+    private static final Random RND = new Random();
+    private static final int X = 0, Y = 0, R = 100;
+    private static final double FIFTEENTH_CIRCLE = Math.PI / 7.5;
+    private static final int ELEMENT_AMOUNT = 5;
+    private static int index = 0;
+    private static double angle = FIFTEENTH_CIRCLE;
 
     public static void main(String[] args) throws ADVException {
 
         ADV.launch(args);
 
         // instantiate data structure container
-        StackModule stackModule = new StackModule("Stack", stack1);
-        StackModule stackModule2 = new StackModule("Stack2", stack2);
-        GraphModule graphModule2 = new GraphModule("Graph", graph2);
-        graphModule.addChildModule(stackModule);
-        graphModule.addChildModule(stackModule2);
-        graphModule.addChildModule(graphModule2);
+        queueModule.addChildModule(arrayModule);
+        queueModule.addChildModule(stackModule);
+        queueModule.addChildModule(graphModule);
 
-        fillGraph(graph);
-        fillGraph(graph2);
+        fillHelpers();
+        ADV.snapshot(queueModule, "Showing stack, queue, array and graph module");
 
-        fillStack(stackModule);
-        fillStack(stackModule2);
+        fillGraph();
+        ADV.snapshot(queueModule, "Filling graph from helpers");
 
-        ADV.snapshot(graphModule, "Showing 4 Modules simultaniously");
+        fillGraph();
+        ADV.snapshot(queueModule, "Filling graph from helpers");
+
+        fillGraph();
+        ADV.snapshot(queueModule, "Filling graph from helpers");
+
+        fillGraph();
+        ADV.snapshot(queueModule, "Filling graph from helpers");
+
+        fillGraph();
+        ADV.snapshot(queueModule, "Filling graph from helpers");
     }
 
-    private static void fillStack(StackModule stackModule) {
-        for (int i = 0; i < 4; i++) {
-            stackModule.getStack().push(rnd.nextInt(10));
+    private static void fillHelpers() {
+        for (int i = 0; i < ELEMENT_AMOUNT; i++) {
+            array[i] = RND.nextInt(9) + 1;
+            queue.insert(RND.nextInt(10));
+            stack.push(RND.nextInt(10));
         }
     }
 
-    private static void fillGraph(Graph graph) {
-        Vertex<String> a = new Vertex<>(rnd.nextInt(10) + "");
-        a.setFixedPosX(60);
-        a.setFixedPosY(50);
-        Vertex<String> b = new Vertex<>(rnd.nextInt(10) + "");
-        b.setFixedPosX(140);
-        b.setFixedPosY(50);
-        Vertex<String> c = new Vertex<>(rnd.nextInt(10) + "");
-        c.setFixedPosX(180);
-        c.setFixedPosY(100);
-        Vertex<String> d = new Vertex<>(rnd.nextInt(10) + "");
-        d.setFixedPosX(100);
-        d.setFixedPosY(150);
-        Vertex<String> e = new Vertex<>(rnd.nextInt(10) + "");
-        e.setFixedPosX(20);
-        e.setFixedPosY(100);
+    private static void fillGraph() {
+        double currentAngle = angle;
+        Vertex<Integer> a = new Vertex<>(queue.removeMin());
+        a.setFixedPosX((int) (X + R * Math.cos(currentAngle)));
+        a.setFixedPosY((int) (Y + R * Math.sin(currentAngle)));
+        currentAngle += ELEMENT_AMOUNT * FIFTEENTH_CIRCLE;
 
-        graph.addVertices(a, b, c, d, e);
+        int i = index++;
+        Vertex<Integer> b = new Vertex<>(array[i]);
+        array[i] = 0;
+        b.setFixedPosX((int) (X + R * Math.cos(currentAngle)));
+        b.setFixedPosY((int) (Y + R * Math.sin(currentAngle)));
+        currentAngle += ELEMENT_AMOUNT * FIFTEENTH_CIRCLE;
+
+
+        Vertex<Integer> c = new Vertex<>(stack.pop());
+        c.setFixedPosX((int) (X + R * Math.cos(currentAngle)));
+        c.setFixedPosY((int) (Y + R * Math.sin(currentAngle)));
+        angle += FIFTEENTH_CIRCLE;
+
+        graph.addVertices(a, b, c);
 
         Edge ab = new Edge(a.getId(), b.getId());
-        Edge bd = new Edge(b.getId(), d.getId());
-        Edge de = new Edge(d.getId(), e.getId());
-        Edge ae = new Edge(a.getId(), e.getId());
-        Edge cd = new Edge(c.getId(), d.getId());
-        Edge ec = new Edge(e.getId(), c.getId());
+        Edge bc = new Edge(b.getId(), c.getId());
+        graph.addEdges(ab, bc);
 
-        graph.addEdges(ab, cd, de, ae, bd, ec);
+        graph.getVertices().stream().findFirst().ifPresent(last -> {
+            Edge lasta = new Edge(last.getId(), a.getId(), true);
+            graph.addEdges(lasta);
+        });
+
+
     }
 }
 

@@ -9,9 +9,7 @@ import ch.hsr.adv.lib.array.logic.ArrayModule;
 import ch.hsr.adv.lib.bootstrapper.ADV;
 import ch.hsr.adv.lib.core.logic.domain.styles.ADVEnumStyle;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
-import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVInfoStyle;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVSuccessStyle;
-import ch.hsr.adv.lib.graph.logic.domain.styles.presets.ADVCrossEdgeStyle;
 
 
 public class LinearSearch {
@@ -37,7 +35,6 @@ public class LinearSearch {
         array[4] = -4;
         array[5] = 2;
         array[6] = 5;
-
 
 
         // we are looking for the item with the value 2

@@ -8,9 +8,6 @@ import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.lib.array.logic.ArrayModule;
 import ch.hsr.adv.lib.bootstrapper.ADV;
 import ch.hsr.adv.lib.core.logic.domain.styles.ADVEnumStyle;
-import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
-import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVInfoStyle;
-import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVSuccessStyle;
 
 
 public class BubbleSort {

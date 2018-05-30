@@ -42,8 +42,10 @@ public class StylesShowcase {
 
         // -------- snapshot 2 -------- //
         setStyle(5, new ADVEnumStyle(ADVColor.ORANGE, ADVStrokeStyle.DASHED, ADVStrokeThickness.THIN));
-        setStyle(6, new ADVEnumStyle(ADVColor.GRAY_LIGHT, ADVColor.GRAY_DARK, ADVStrokeStyle.DOTTED, ADVStrokeThickness.MEDIUM));
-        setStyle(7, new ADVEnumStyle(ADVColor.YELLOW_LIGHT, ADVColor.YELLOW, ADVStrokeStyle.SOLID, ADVStrokeThickness.THICK));
+        setStyle(6, new ADVEnumStyle(ADVColor.GRAY_LIGHT, ADVColor.GRAY_DARK, ADVStrokeStyle.DOTTED,
+                ADVStrokeThickness.MEDIUM));
+        setStyle(7, new ADVEnumStyle(ADVColor.YELLOW_LIGHT, ADVColor.YELLOW, ADVStrokeStyle.SOLID, ADVStrokeThickness
+                .THICK));
         ADV.snapshot(arrayModule, "Using enum style.");
 
         // -------- snapshot 3 -------- //
