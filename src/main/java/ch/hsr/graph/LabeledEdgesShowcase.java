@@ -2,7 +2,7 @@ package ch.hsr.graph;
 
 import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.lib.bootstrapper.ADV;
-import ch.hsr.adv.lib.graph.logic.domain.GraphModule;
+import ch.hsr.adv.lib.graph.logic.GraphModule;
 import ch.hsr.graph.model.Edge;
 import ch.hsr.graph.model.Graph;
 import ch.hsr.graph.model.Vertex;
@@ -83,7 +83,7 @@ public class LabeledEdgesShowcase {
         af2.setLabel(55);
         Edge<Integer> ag2 = new Edge<>(a, g);
         ag2.setLabel(66);
-        Edge<Integer> ah2= new Edge<>(a, h);
+        Edge<Integer> ah2 = new Edge<>(a, h);
         ah2.setLabel(77);
         Edge<Integer> ai2 = new Edge<>(a, i);
         ai2.setLabel(88);
@@ -92,9 +92,9 @@ public class LabeledEdgesShowcase {
         ADV.snapshot(module, "Insert duplicated edges");
 
 
-        Edge<Integer> cc = new Edge<>(c,c);
+        Edge<Integer> cc = new Edge<>(c, c);
         cc.setLabel(0);
-        Edge<Integer> gg = new Edge<>(g,g);
+        Edge<Integer> gg = new Edge<>(g, g);
         gg.setLabel(0);
 
         graph.addEdges(cc, gg);

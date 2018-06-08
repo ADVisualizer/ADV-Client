@@ -1,5 +1,5 @@
 group 'ch.adv'
-version '0.3'
+version '1.0'
 
 apply plugin: 'java'
 
@@ -15,6 +15,6 @@ repositories {
 }
 
 dependencies {
-    compile 'ch.hsr.adv:adv-ui:0.3'
-    compile 'ch.hsr.adv:adv-lib:0.3'
+    compile 'ch.hsr.adv:adv-ui:1.0'
+    compile 'ch.hsr.adv:adv-lib:1.0'
 }

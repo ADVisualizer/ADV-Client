@@ -4,7 +4,7 @@ import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.commons.graph.logic.domain.ADVVertex;
 import ch.hsr.adv.lib.bootstrapper.ADV;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
-import ch.hsr.adv.lib.graph.logic.domain.GraphModule;
+import ch.hsr.adv.lib.graph.logic.GraphModule;
 import ch.hsr.adv.lib.graph.logic.domain.styles.presets.ADVDiscoveryEdgeStyle;
 import ch.hsr.adv.lib.graph.logic.domain.styles.presets.ADVVisitedNodeStyle;
 import ch.hsr.adv.lib.queue.logic.QueueModule;

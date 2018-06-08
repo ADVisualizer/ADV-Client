@@ -4,7 +4,7 @@ package ch.hsr.multi;
 import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.lib.array.logic.ArrayModule;
 import ch.hsr.adv.lib.bootstrapper.ADV;
-import ch.hsr.adv.lib.graph.logic.domain.GraphModule;
+import ch.hsr.adv.lib.graph.logic.GraphModule;
 import ch.hsr.adv.lib.queue.logic.QueueModule;
 import ch.hsr.adv.lib.stack.logic.StackModule;
 import ch.hsr.graph.model.Edge;
