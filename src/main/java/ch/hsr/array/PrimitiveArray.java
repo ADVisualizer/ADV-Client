@@ -1,31 +1,25 @@
 package ch.hsr.array;
 
-import ch.adv.lib.bootstrapper.ADV;
-import ch.adv.lib.core.logic.util.ADVException;
-import ch.hsr.array.model.MyArray;
+import ch.hsr.adv.commons.core.logic.util.ADVException;
+import ch.hsr.adv.lib.array.logic.ArrayModule;
+import ch.hsr.adv.lib.bootstrapper.ADV;
 
 
 public class PrimitiveArray {
+    // instantiate data structure container
+    private static final Integer[] primitiveArray = new Integer[10];
+    private static final ArrayModule arrayModule = new ArrayModule("Primitive Array", primitiveArray);
+
 
     public static void main(String[] args) throws ADVException {
 
         ADV.launch(args);
 
-        MyArray<Object> primitiveArray = new MyArray<>(10, "Primitive Array");
-
-        primitiveArray.set(0, 1);
-        primitiveArray.set(3, 1);
-        primitiveArray.set(0, 3);
-        primitiveArray.set(5, 4);
-        ADV.snapshot(primitiveArray, "First Snapshot");
-
-        primitiveArray.set(0, 0);
-        primitiveArray.set(1, 1);
-        primitiveArray.set(2, 2);
-        primitiveArray.set(3, 3);
-        ADV.snapshot(primitiveArray, "Second Snapshot");
-
-        ADV.disconnect();
+        primitiveArray[0] = 0;
+        primitiveArray[1] = 1;
+        primitiveArray[3] = 3;
+        primitiveArray[5] = 5;
+        ADV.snapshot(arrayModule, "Empty value are default initialized with null");
     }
 }
 

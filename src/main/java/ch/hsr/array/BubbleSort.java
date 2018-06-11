@@ -1,51 +1,78 @@
 package ch.hsr.array;
 
-import ch.adv.lib.bootstrapper.ADV;
-import ch.adv.lib.core.logic.domain.styles.presets.ADVInfoStyle;
-import ch.adv.lib.core.logic.util.ADVException;
-import ch.hsr.array.model.MyArray;
+import ch.hsr.adv.commons.core.logic.domain.styles.ADVColor;
+import ch.hsr.adv.commons.core.logic.domain.styles.ADVStrokeStyle;
+import ch.hsr.adv.commons.core.logic.domain.styles.ADVStrokeThickness;
+import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
+import ch.hsr.adv.commons.core.logic.util.ADVException;
+import ch.hsr.adv.lib.array.logic.ArrayModule;
+import ch.hsr.adv.lib.bootstrapper.ADV;
+import ch.hsr.adv.lib.core.logic.domain.styles.ADVEnumStyle;
 
 
 public class BubbleSort {
+    // instantiate data structure container
+    private static final Integer[] array = new Integer[6];
+    private static final ArrayModule arrayModule = new ArrayModule("Bubble Sort", array);
+
+    // styles
+    private static final ADVStyle activeLeftStyle = new ADVEnumStyle(ADVColor.ORANGE_LIGHT,
+            ADVColor.ORANGE_DARK,
+            ADVStrokeStyle.SOLID,
+            ADVStrokeThickness.STANDARD);
+    private static final ADVStyle activeRightStyle = new ADVEnumStyle(ADVColor.ORANGE,
+            ADVColor.ORANGE_DARK,
+            ADVStrokeStyle.SOLID,
+            ADVStrokeThickness.STANDARD);
+
 
     public static void main(String[] args) throws ADVException {
 
         ADV.launch(args);
 
-        // instantiate data structure container
-        MyArray<Integer> array = new MyArray<>(6, "BubbleSort");
-        array.set(0, 45);
-        array.set(1, 1);
-        array.set(2, 4);
-        array.set(3, 5);
-        array.set(4, 59);
-        array.set(5, -4);
+        array[0] = 1;
+        array[1] = 4;
+        array[2] = 5;
+        array[3] = 59;
+        array[4] = 12;
+        array[5] = -4;
 
         bubblesort(array);
-
-        ADV.disconnect();
     }
 
-    private static void bubblesort(MyArray<Integer> array) {
-        Integer temp;
-        for (int i = 1; i < array.getSize(); i++) {
-            for (int j = 0; j < array.getSize() - i; j++) {
+    private static void bubblesort(Integer[] array) throws ADVException {
 
-                array.clearStyles();
-                array.getStyleMap().put(j, new ADVInfoStyle());
-                array.getStyleMap().put(j + 1, new ADVInfoStyle());
+        int temp;
 
-                ADV.snapshot(array);
+        for (int i = 1; i < array.length; i++) {
+            for (int j = 0; j < array.length - i; j++) {
 
-                if (array.get(j) > array.get(j + 1)) {
-                    temp = array.get(j);
-                    array.set(j, array.get(j + 1));
-                    array.set(j + 1, temp);
+                clearStyles();
+                setStyle(j, activeLeftStyle);
+                setStyle(j + 1, activeRightStyle);
 
-                    ADV.snapshot(array);
+                ADV.snapshot(arrayModule);
+
+                if (array[j] > array[j + 1]) {
+                    temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+
+                    setStyle(j, activeRightStyle);
+                    setStyle(j + 1, activeLeftStyle);
+
+                    ADV.snapshot(arrayModule);
                 }
             }
         }
+    }
+
+    private static void clearStyles() {
+        arrayModule.getStyleMap().clear();
+    }
+
+    private static void setStyle(int i, ADVStyle style) {
+        arrayModule.getStyleMap().put(i, style);
     }
 
 }
