@@ -92,7 +92,7 @@ public class BreadthFirstSearch {
             ADV.snapshot(graphModule, "Go to: " + current.toString());
 
             // add neighbours to queue
-            List<ADVVertex> neighbours = graph.getNeighbors(current);
+            List<ADVVertex<Integer>> neighbours = graph.getNeighbors(current);
             for (ADVVertex n : neighbours) {
                 Vertex neighbour = (Vertex) n;
 

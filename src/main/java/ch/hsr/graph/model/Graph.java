@@ -6,10 +6,10 @@ import ch.hsr.adv.commons.graph.logic.domain.ADVVertex;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Graph implements ADVGraph<Vertex, Edge> {
+public class Graph implements ADVGraph<Vertex<String>, Edge<Integer>> {
 
-    private Map<Long, Vertex> vertices = new HashMap<>();
-    private List<Edge> edges = new LinkedList<>();
+    private Map<Long, Vertex<String>> vertices = new HashMap<>();
+    private List<Edge<Integer>> edges = new LinkedList<>();
 
     @Override
     public void addVertex(Vertex vertex) {
@@ -64,12 +64,12 @@ public class Graph implements ADVGraph<Vertex, Edge> {
     }
 
     @Override
-    public Collection<Vertex> getVertices() {
+    public Collection<Vertex<String>> getVertices() {
         return vertices.values();
     }
 
     @Override
-    public Collection<Edge> getEdges() {
+    public Collection<Edge<Integer>> getEdges() {
         return edges;
     }
 
@@ -85,8 +85,8 @@ public class Graph implements ADVGraph<Vertex, Edge> {
     }
 
     @Override
-    public List<ADVVertex> getNeighbors(ADVVertex source) {
-        List<ADVVertex> neighbors = new ArrayList<>();
+    public List<ADVVertex<Integer>> getNeighbors(ADVVertex source) {
+        List<ADVVertex<Integer>> neighbors = new ArrayList<>();
         edges.forEach(e -> {
             if (e.isDirected()) {
                 if (e.getSourceElementId() == source.getId()) {
