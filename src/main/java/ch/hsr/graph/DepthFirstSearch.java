@@ -81,7 +81,7 @@ public class DepthFirstSearch {
             current.setVisited(true);
             ADV.snapshot(graphModule);
 
-            List<ADVVertex<Integer>> neighbours = graph.getNeighbors(current);
+            List<ADVVertex> neighbours = graph.getNeighbors(current);
             for (ADVVertex n : neighbours) {
                 Vertex neighbour = (Vertex) n;
 

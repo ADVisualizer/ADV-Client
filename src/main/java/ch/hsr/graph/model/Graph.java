@@ -85,8 +85,8 @@ public class Graph implements ADVGraph<Vertex<String>, Edge<Integer>> {
     }
 
     @Override
-    public List<ADVVertex<Integer>> getNeighbors(ADVVertex source) {
-        List<ADVVertex<Integer>> neighbors = new ArrayList<>();
+    public List<ADVVertex> getNeighbors(ADVVertex source) {
+        List<ADVVertex> neighbors = new ArrayList<>();
         edges.forEach(e -> {
             if (e.isDirected()) {
                 if (e.getSourceElementId() == source.getId()) {
