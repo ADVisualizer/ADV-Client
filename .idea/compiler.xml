@@ -2,12 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="adv-client_main" target="1.9" />
-      <module name="adv-client_test" target="1.9" />
-      <module name="adv-test_main" target="1.9" />
-      <module name="adv-test_test" target="1.9" />
-      <module name="adv-user_codebase_main" target="1.9" />
-      <module name="adv-user_codebase_test" target="1.9" />
+      <module name="adv-user_codebase_main" target="1.10" />
+      <module name="adv-user_codebase_test" target="1.10" />
     </bytecodeTargetLevel>
   </component>
 </project>
