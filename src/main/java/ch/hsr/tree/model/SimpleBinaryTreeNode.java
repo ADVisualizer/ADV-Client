@@ -8,11 +8,6 @@ public class SimpleBinaryTreeNode implements ADVBinaryTreeNode<String> {
     private SimpleBinaryTreeNode leftChild;
     private SimpleBinaryTreeNode rightChild;
     private String content;
-
-    public void setStyle(ADVStyle style) {
-        this.style = style;
-    }
-
     private ADVStyle style;
 
     public SimpleBinaryTreeNode(String content) {
@@ -30,6 +25,10 @@ public class SimpleBinaryTreeNode implements ADVBinaryTreeNode<String> {
 
     public void setRightChild(SimpleBinaryTreeNode rightChild) {
         this.rightChild = rightChild;
+    }
+
+    public void setStyle(ADVStyle style) {
+        this.style = style;
     }
 
     @Override
