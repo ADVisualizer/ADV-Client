@@ -5,8 +5,8 @@ import ch.hsr.adv.commons.tree.logic.domain.ADVBinaryTreeNode;
 
 public class SimpleBinaryTreeNode implements ADVBinaryTreeNode<String> {
 
-    private ADVBinaryTreeNode<String> leftChild;
-    private ADVBinaryTreeNode<String> rightChild;
+    private SimpleBinaryTreeNode leftChild;
+    private SimpleBinaryTreeNode rightChild;
     private String content;
 
     public void setStyle(ADVStyle style) {
@@ -24,11 +24,11 @@ public class SimpleBinaryTreeNode implements ADVBinaryTreeNode<String> {
         this.style = style;
     }
 
-    public void setLeftChild(ADVBinaryTreeNode<String> leftChild) {
+    public void setLeftChild(SimpleBinaryTreeNode leftChild) {
         this.leftChild = leftChild;
     }
 
-    public void setRightChild(ADVBinaryTreeNode<String> rightChild) {
+    public void setRightChild(SimpleBinaryTreeNode rightChild) {
         this.rightChild = rightChild;
     }
 

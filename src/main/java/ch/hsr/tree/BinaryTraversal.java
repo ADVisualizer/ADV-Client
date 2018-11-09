@@ -6,6 +6,9 @@ import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVSuccessStyle;
 import ch.hsr.adv.lib.tree.logic.binarytree.BinaryTreeModule;
 import ch.hsr.tree.model.SimpleBinaryTreeNode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryTraversal {
 
     public static void main(String[] args) throws ADVException {
@@ -19,6 +22,7 @@ public class BinaryTraversal {
         traversePreorder(module, root);
 //        traversePostorder(module, root);
 //        traverseInorder(module, root);
+//        traverseBreadthFirst(module, root);
     }
 
     private static void traversePreorder(BinaryTreeModule module, SimpleBinaryTreeNode node) throws ADVException {
@@ -46,6 +50,25 @@ public class BinaryTraversal {
             visitNode(module, node);
 
             traverseInorder(module, (SimpleBinaryTreeNode) node.getRightChild());
+        }
+    }
+
+    private static void traverseBreadthFirst(BinaryTreeModule module, SimpleBinaryTreeNode root) throws ADVException {
+        Queue<SimpleBinaryTreeNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            SimpleBinaryTreeNode node = queue.remove();
+            visitNode(module, node);
+
+            SimpleBinaryTreeNode leftChild = (SimpleBinaryTreeNode) node.getLeftChild();
+            SimpleBinaryTreeNode rightChild = (SimpleBinaryTreeNode) node.getRightChild();
+            if (leftChild != null) {
+                queue.add(leftChild);
+            }
+            if (rightChild != null) {
+                queue.add(rightChild);
+            }
         }
     }
 
