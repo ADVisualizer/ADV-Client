@@ -27,6 +27,10 @@ public class SimpleGeneralTreeNode implements ADVGeneralTreeNode<Integer> {
         children.add(child);
     }
 
+    public void removeChild(SimpleGeneralTreeNode child) {
+        children.remove(child);
+    }
+
     public void setStyle(ADVStyle style) {
         this.style = style;
     }
