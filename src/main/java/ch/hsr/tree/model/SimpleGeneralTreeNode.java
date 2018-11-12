@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SimpleGeneralTreeNode implements ADVGeneralTreeNode<Integer> {
 
-    private List<ADVGeneralTreeNode<Integer>> children;
+    private List<SimpleGeneralTreeNode> children;
     private ADVStyle style;
     private Integer content;
 
@@ -32,7 +32,7 @@ public class SimpleGeneralTreeNode implements ADVGeneralTreeNode<Integer> {
     }
 
     @Override
-    public List<ADVGeneralTreeNode<Integer>> getChildren() {
+    public List<SimpleGeneralTreeNode> getChildren() {
         return Collections.unmodifiableList(children);
     }
 

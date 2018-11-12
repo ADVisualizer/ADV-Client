@@ -1,7 +1,6 @@
 package ch.hsr.tree;
 
 import ch.hsr.adv.commons.core.logic.util.ADVException;
-import ch.hsr.adv.commons.tree.logic.domain.ADVGeneralTreeNode;
 import ch.hsr.adv.lib.bootstrapper.ADV;
 import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVSuccessStyle;
 import ch.hsr.adv.lib.tree.logic.generaltree.GeneralTreeModule;
@@ -31,17 +30,14 @@ public class GeneralTraversal {
             SimpleGeneralTreeNode node = queue.remove();
             visitNode(module, node);
 
-            for (ADVGeneralTreeNode<Integer> childNode :
-                    node.getChildren()) {
-                queue.add((SimpleGeneralTreeNode) childNode);
-            }
+            queue.addAll(node.getChildren());
         }
     }
 
     private static void traversePostorder(GeneralTreeModule module, SimpleGeneralTreeNode node) throws ADVException {
-        for (ADVGeneralTreeNode<Integer> childNode :
+        for (SimpleGeneralTreeNode childNode :
                 node.getChildren()) {
-            traversePostorder(module, (SimpleGeneralTreeNode) childNode);
+            traversePostorder(module, childNode);
         }
 
         visitNode(module, node);
@@ -50,9 +46,9 @@ public class GeneralTraversal {
     private static void traversePreorder(GeneralTreeModule module, SimpleGeneralTreeNode node) throws ADVException {
         visitNode(module, node);
 
-        for (ADVGeneralTreeNode<Integer> childNode :
+        for (SimpleGeneralTreeNode childNode :
                 node.getChildren()) {
-            traversePreorder(module, (SimpleGeneralTreeNode) childNode);
+            traversePreorder(module, childNode);
         }
     }
 
