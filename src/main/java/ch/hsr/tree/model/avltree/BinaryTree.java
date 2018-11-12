@@ -1,8 +1,5 @@
 package ch.hsr.tree.model.avltree;
 
-import java.util.Collection;
-import java.util.LinkedList;
-
 public class BinaryTree<K extends Comparable<K>> {
 
     protected Node root;
