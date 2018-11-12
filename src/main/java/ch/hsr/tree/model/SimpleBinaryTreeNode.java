@@ -32,12 +32,12 @@ public class SimpleBinaryTreeNode implements ADVBinaryTreeNode<String> {
     }
 
     @Override
-    public ADVBinaryTreeNode<String> getLeftChild() {
+    public SimpleBinaryTreeNode getLeftChild() {
         return leftChild;
     }
 
     @Override
-    public ADVBinaryTreeNode<String> getRightChild() {
+    public SimpleBinaryTreeNode getRightChild() {
         return rightChild;
     }
 

@@ -29,15 +29,15 @@ public class BinaryTraversal {
         if (node != null) {
             visitNode(module, node);
 
-            traversePreorder(module, (SimpleBinaryTreeNode) node.getLeftChild());
-            traversePreorder(module, (SimpleBinaryTreeNode) node.getRightChild());
+            traversePreorder(module, node.getLeftChild());
+            traversePreorder(module, node.getRightChild());
         }
     }
 
     private static void traversePostorder(BinaryTreeModule module, SimpleBinaryTreeNode node) throws ADVException {
         if (node != null) {
-            traversePostorder(module, (SimpleBinaryTreeNode) node.getLeftChild());
-            traversePostorder(module, (SimpleBinaryTreeNode) node.getRightChild());
+            traversePostorder(module, node.getLeftChild());
+            traversePostorder(module, node.getRightChild());
 
             visitNode(module, node);
         }
@@ -45,11 +45,11 @@ public class BinaryTraversal {
 
     private static void traverseInorder(BinaryTreeModule module, SimpleBinaryTreeNode node) throws ADVException {
         if (node != null) {
-            traverseInorder(module, (SimpleBinaryTreeNode) node.getLeftChild());
+            traverseInorder(module, node.getLeftChild());
 
             visitNode(module, node);
 
-            traverseInorder(module, (SimpleBinaryTreeNode) node.getRightChild());
+            traverseInorder(module, node.getRightChild());
         }
     }
 
@@ -61,8 +61,8 @@ public class BinaryTraversal {
             SimpleBinaryTreeNode node = queue.remove();
             visitNode(module, node);
 
-            SimpleBinaryTreeNode leftChild = (SimpleBinaryTreeNode) node.getLeftChild();
-            SimpleBinaryTreeNode rightChild = (SimpleBinaryTreeNode) node.getRightChild();
+            SimpleBinaryTreeNode leftChild = node.getLeftChild();
+            SimpleBinaryTreeNode rightChild = node.getRightChild();
             if (leftChild != null) {
                 queue.add(leftChild);
             }
