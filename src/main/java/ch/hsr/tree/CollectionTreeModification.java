@@ -38,6 +38,20 @@ public class CollectionTreeModification {
         modifyForest(module, root1Child2, child1Child1);
 
         addNewRoots(module);
+
+        simulateForgetChildToModuleAddition(module, root1Child1);
+    }
+
+    private static void simulateForgetChildToModuleAddition(CollectionTreeModule<Integer> module, SimpleGeneralTreeNode root1Child1) throws ADVException {
+        SimpleGeneralTreeNode parent = new SimpleGeneralTreeNode(5);
+        SimpleGeneralTreeNode child1 = new SimpleGeneralTreeNode(51);
+        SimpleGeneralTreeNode child2 = new SimpleGeneralTreeNode(52);
+        root1Child1.addChild(parent);
+        parent.addChild(child1);
+        parent.addChild(child2);
+        module.add(child1);
+        module.add(child2);
+        ADV.snapshot(module);
     }
 
     private static void modifyForest(CollectionTreeModule<Integer> module, SimpleGeneralTreeNode root1Child2, SimpleGeneralTreeNode child1Child1) throws ADVException {
