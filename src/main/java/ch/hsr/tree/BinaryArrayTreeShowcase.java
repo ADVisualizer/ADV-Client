@@ -25,6 +25,13 @@ public class BinaryArrayTreeShowcase {
         changeList(nodeList, module);
 
         changeListSize(nodeList, module);
+
+        removeParentListElement(nodeList, module);
+    }
+
+    private static void removeParentListElement(ArrayList<Double> nodeList, BinaryArrayTreeModule<Double> module) throws ADVException {
+        nodeList.set(2, null);
+        snapshotList(module, nodeList);
     }
 
     private static void changeListSize(ArrayList<Double> nodeList, BinaryArrayTreeModule<Double> module) throws ADVException {
@@ -73,6 +80,13 @@ public class BinaryArrayTreeShowcase {
         changeArray(module, nodeArray);
 
         changeArraySize(nodeArray, module);
+
+        removeParentArrayElement(nodeArray, module);
+    }
+
+    private static void removeParentArrayElement(Double[] nodeArray, BinaryArrayTreeModule<Double> module) throws ADVException {
+        nodeArray[2] = null;
+        snapshotArray(module, nodeArray);
     }
 
     private static void changeArraySize(Double[] nodeArray, BinaryArrayTreeModule<Double> module) throws ADVException {
