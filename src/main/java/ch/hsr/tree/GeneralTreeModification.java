@@ -19,6 +19,10 @@ public class GeneralTreeModification {
         SimpleGeneralTreeNode rightleft = root.getChildren().get(1).getChildren().get(0);
         root.getChildren().get(1).removeChild(rightleft);
         ADV.snapshot(module);
+
+        SimpleGeneralTreeNode rootLeft = root.getChildren().get(0);
+        root.removeChild(rootLeft);
+        ADV.snapshot(module);
     }
 
     private static SimpleGeneralTreeNode buildTree() {
