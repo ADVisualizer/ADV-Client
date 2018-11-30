@@ -2,6 +2,8 @@ package ch.hsr.tree;
 
 import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.lib.bootstrapper.ADV;
+import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
+import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVWarningStyle;
 import ch.hsr.adv.lib.tree.logic.collectiontree.CollectionTreeModule;
 import ch.hsr.tree.model.SimpleGeneralTreeNode;
 
@@ -37,7 +39,7 @@ public class CollectionTreeModification {
 
         modifyForest(module, root1Child2, child1Child1);
 
-        addNewRoots(module);
+        addNewStyledRoots(module);
 
         simulateForgetChildToModuleAddition(module, root1Child1);
     }
@@ -64,9 +66,10 @@ public class CollectionTreeModification {
         ADV.snapshot(module);
     }
 
-    private static void addNewRoots(CollectionTreeModule<Integer> module) throws ADVException {
+    private static void addNewStyledRoots(CollectionTreeModule<Integer> module) throws ADVException {
         List<SimpleGeneralTreeNode> newRoots = Arrays.asList(
-                new SimpleGeneralTreeNode(2), new SimpleGeneralTreeNode(3));
+                new SimpleGeneralTreeNode(2, new ADVWarningStyle()),
+                new SimpleGeneralTreeNode(3, new ADVErrorStyle()));
         module.add(newRoots);
         ADV.snapshot(module);
     }

@@ -13,8 +13,6 @@ public class DisplayableAVLTree<K extends Comparable<K>> extends AVLTree<K> {
 
     private final BinaryTreeModule module;
 
-    private final int DELAY = 200;
-
     protected class DisplayableAVLNode extends AVLTree<K>.AVLNode implements ADVBinaryTreeNode<K> {
 
         private ADVStyle style;
@@ -52,6 +50,7 @@ public class DisplayableAVLTree<K extends Comparable<K>> extends AVLTree<K> {
     DisplayableAVLTree() {
         module = new BinaryTreeModule("AVLTreeGVS");
         module.setShowArray(true);
+        module.setFixedTreeHeight(3, 2);
     }
 
     public static void main(String[] args) throws ADVException {
@@ -89,10 +88,8 @@ public class DisplayableAVLTree<K extends Comparable<K>> extends AVLTree<K> {
         module.setRoot((DisplayableAVLNode) root);
         try {
             ADV.snapshot(module);
-        } catch (ADVException ignored) { }
-        try {
-            Thread.sleep(DELAY);
-        } catch (InterruptedException ignored) { }
+        } catch (ADVException ignored) {
+        }
         return result;
     }
 
@@ -103,10 +100,6 @@ public class DisplayableAVLTree<K extends Comparable<K>> extends AVLTree<K> {
         try {
             ADV.snapshot(module);
         } catch (ADVException ignored) {
-        }
-        try {
-            Thread.sleep(DELAY);
-        } catch (InterruptedException ignored) {
         }
         ((DisplayableAVLNode) k1).setStyle(null);
         return super.rotateWithRightChild(k1);
@@ -119,10 +112,6 @@ public class DisplayableAVLTree<K extends Comparable<K>> extends AVLTree<K> {
         try {
             ADV.snapshot(module);
         } catch (ADVException ignored) {
-        }
-        try {
-            Thread.sleep(DELAY);
-        } catch (InterruptedException ignored) {
         }
         ((DisplayableAVLNode) k2).setStyle(null);
         return super.rotateWithLeftChild(k2);

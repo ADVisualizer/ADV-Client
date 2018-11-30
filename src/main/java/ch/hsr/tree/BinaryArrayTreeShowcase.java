@@ -2,6 +2,7 @@ package ch.hsr.tree;
 
 import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.lib.bootstrapper.ADV;
+import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVSuccessStyle;
 import ch.hsr.adv.lib.tree.logic.binaryarraytree.BinaryArrayTreeModule;
 
 import java.util.ArrayList;
@@ -22,15 +23,26 @@ public class BinaryArrayTreeShowcase {
 //        module.setShowArray(true);
         ADV.snapshot(module);
 
+        setStyle(module);
+
         changeList(nodeList, module);
 
         changeListSize(nodeList, module);
+
+        removeAndAddNode(nodeList, module);
 
         removeParentListElement(nodeList, module);
     }
 
     private static void removeParentListElement(ArrayList<Double> nodeList, BinaryArrayTreeModule<Double> module) throws ADVException {
+        nodeList.set(1, null);
+        snapshotList(module, nodeList);
+    }
+
+    private static void removeAndAddNode(ArrayList<Double> nodeList, BinaryArrayTreeModule<Double> module) throws ADVException {
         nodeList.set(2, null);
+        snapshotList(module, nodeList);
+        nodeList.set(2, 1.1);
         snapshotList(module, nodeList);
     }
 
@@ -77,15 +89,26 @@ public class BinaryArrayTreeShowcase {
 //        module.setShowArray(true);
         ADV.snapshot(module);
 
+        setStyle(module);
+
         changeArray(module, nodeArray);
 
         changeArraySize(nodeArray, module);
+
+        removeAndAddNode(nodeArray, module);
 
         removeParentArrayElement(nodeArray, module);
     }
 
     private static void removeParentArrayElement(Double[] nodeArray, BinaryArrayTreeModule<Double> module) throws ADVException {
+        nodeArray[1] = null;
+        snapshotArray(module, nodeArray);
+    }
+
+    private static void removeAndAddNode(Double[] nodeArray, BinaryArrayTreeModule<Double> module) throws ADVException {
         nodeArray[2] = null;
+        snapshotArray(module, nodeArray);
+        nodeArray[2] = 1.1;
         snapshotArray(module, nodeArray);
     }
 
@@ -119,6 +142,11 @@ public class BinaryArrayTreeShowcase {
 
     private static void snapshotArray(BinaryArrayTreeModule<Double> module, Double[] nodeArray) throws ADVException {
         module.setArray(nodeArray);
+        ADV.snapshot(module);
+    }
+
+    private static void setStyle(BinaryArrayTreeModule<Double> module) throws ADVException {
+        module.setStyle(1, new ADVSuccessStyle());
         ADV.snapshot(module);
     }
 }

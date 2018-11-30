@@ -17,7 +17,7 @@ public class SimpleGeneralTreeNode implements ADVGeneralTreeNode<Integer> {
         this(content, null);
     }
 
-    private SimpleGeneralTreeNode(Integer content, ADVStyle style) {
+    public SimpleGeneralTreeNode(Integer content, ADVStyle style) {
         children = new ArrayList<>();
         this.content = content;
         this.style = style;
