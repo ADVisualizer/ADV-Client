@@ -48,9 +48,8 @@ public class BinaryTree<K extends Comparable<K>> {
 
     }
 
-    public K insert(K content) {
+    public void insert(K content) {
         root = insert(root, content);
-        return content;
     }
 
     protected Node insert(Node node, K content) {
@@ -68,13 +67,9 @@ public class BinaryTree<K extends Comparable<K>> {
         return new Node(content);
     }
 
-    public K find(K content) {
+    public boolean find(K content) {
         Node result = find(root, content);
-        if (result == null) {
-            return null;
-        } else {
-            return result.getContent();
-        }
+        return result != null;
     }
 
     protected Node find(Node node, K content) {

@@ -1,15 +1,26 @@
 package ch.hsr.tree;
 
+import ch.hsr.adv.commons.core.logic.domain.styles.ADVColor;
+import ch.hsr.adv.commons.core.logic.domain.styles.ADVStrokeStyle;
+import ch.hsr.adv.commons.core.logic.domain.styles.ADVStrokeThickness;
 import ch.hsr.adv.commons.core.logic.domain.styles.ADVStyle;
 import ch.hsr.adv.commons.core.logic.util.ADVException;
 import ch.hsr.adv.commons.tree.logic.domain.ADVBinaryTreeNode;
 import ch.hsr.adv.lib.bootstrapper.ADV;
-import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVErrorStyle;
-import ch.hsr.adv.lib.core.logic.domain.styles.presets.ADVSuccessStyle;
+import ch.hsr.adv.lib.core.logic.domain.styles.ADVEnumStyle;
 import ch.hsr.adv.lib.tree.logic.binarytree.BinaryTreeModule;
 import ch.hsr.tree.model.avltree.AVLTree;
 
 public class DisplayableAVLTree<K extends Comparable<K>> extends AVLTree<K> {
+
+    private static final ADVStyle nodeToRotateColor = new ADVEnumStyle(ADVColor.RED_LIGHT,
+            ADVColor.RED_DARK,
+            ADVStrokeStyle.DOTTED,
+            ADVStrokeThickness.STANDARD);
+    private static final ADVStyle nodeIncludedInRotationColor = new ADVEnumStyle(ADVColor.ORANGE_LIGHT,
+            ADVColor.ORANGE_DARK,
+            ADVStrokeStyle.DOTTED,
+            ADVStrokeThickness.STANDARD);
 
     private final BinaryTreeModule module;
 
@@ -57,24 +68,12 @@ public class DisplayableAVLTree<K extends Comparable<K>> extends AVLTree<K> {
         ADV.launch(null);
         DisplayableAVLTree<String> avlTree = new DisplayableAVLTree<>();
 
-        System.out.println("Inserting 5:");
         avlTree.put("Str_5");
-        System.out.println("================================");
-        System.out.println("Inserting 7:");
         avlTree.put("Str_7");
-        System.out.println("================================");
-        System.out.println("Inserting 9: Single-Rotation");
-        avlTree.put("Str_9");
-        System.out.println("================================");
-        System.out.println("Inserting 3:");
+        avlTree.put("Str_9"); //Single-Rotation
         avlTree.put("Str_3");
-        System.out.println("================================");
-        System.out.println("Inserting 1: Single-Rotation");
-        avlTree.put("Str_1");
-        System.out.println("================================");
-        System.out.println("Inserting 4: Double-Rotation");
-        avlTree.put("Str_4");
-        System.out.println("================================");
+        avlTree.put("Str_1"); //Single-Rotation
+        avlTree.put("Str_4"); //Double-Rotation
     }
 
     @Override
@@ -83,10 +82,11 @@ public class DisplayableAVLTree<K extends Comparable<K>> extends AVLTree<K> {
     }
 
     @Override
-    public K put(K content) {
-        K result = super.put(content);
-        module.setRoot((DisplayableAVLNode) root);
+    public boolean put(K content) {
+        boolean result = super.put(content);
         try {
+            module.setRoot((DisplayableAVLNode) root);
+
             ADV.snapshot(module);
         } catch (ADVException ignored) {
         }
@@ -95,25 +95,49 @@ public class DisplayableAVLTree<K extends Comparable<K>> extends AVLTree<K> {
 
     @Override
     protected AVLNode rotateWithRightChild(AVLNode k1) {
-        module.setRoot((DisplayableAVLNode) root);
-        ((DisplayableAVLNode) k1).setStyle(new ADVErrorStyle());
         try {
+            module.setRoot((DisplayableAVLNode) root);
+            DisplayableAVLNode dk1 = (DisplayableAVLNode) k1;
+            DisplayableAVLNode dk2 = (DisplayableAVLNode) k1.getRightChild();
+            dk1.setStyle(nodeToRotateColor);
+            dk2.setStyle(nodeIncludedInRotationColor);
+
             ADV.snapshot(module);
+
+            AVLNode result = super.rotateWithRightChild(k1);
+
+            module.setRoot((DisplayableAVLNode) root);
+            ADV.snapshot(module);
+
+            dk1.setStyle(null);
+            dk2.setStyle(null);
+            return result;
         } catch (ADVException ignored) {
         }
-        ((DisplayableAVLNode) k1).setStyle(null);
-        return super.rotateWithRightChild(k1);
+        return null;
     }
 
     @Override
     protected AVLNode rotateWithLeftChild(AVLNode k2) {
-        module.setRoot((DisplayableAVLNode) root);
-        ((DisplayableAVLNode) k2).setStyle(new ADVSuccessStyle());
         try {
+            module.setRoot((DisplayableAVLNode) root);
+            DisplayableAVLNode dk2 = (DisplayableAVLNode) k2;
+            DisplayableAVLNode dk1 = (DisplayableAVLNode) k2.getLeftChild();
+            dk2.setStyle(nodeToRotateColor);
+            dk1.setStyle(nodeIncludedInRotationColor);
+
             ADV.snapshot(module);
+
+            AVLNode result = super.rotateWithLeftChild(k2);
+
+            module.setRoot((DisplayableAVLNode) root);
+            ADV.snapshot(module);
+
+            dk2.setStyle(null);
+            dk1.setStyle(null);
+            return result;
         } catch (ADVException ignored) {
         }
-        ((DisplayableAVLNode) k2).setStyle(null);
-        return super.rotateWithLeftChild(k2);
+        return null;
     }
 }
