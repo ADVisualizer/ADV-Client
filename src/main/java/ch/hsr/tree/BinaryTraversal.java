@@ -16,9 +16,11 @@ public class BinaryTraversal {
         SimpleBinaryTreeNode root = buildTree();
 
         BinaryTreeModule module = new BinaryTreeModule(root, "Traversal");
-        module.setShowArray(true);
-
         ADV.snapshot(module);
+
+        module.setShowArray(true);
+        ADV.snapshot(module);
+
         traversePreorder(module, root);
 //        traversePostorder(module, root);
 //        traverseInorder(module, root);

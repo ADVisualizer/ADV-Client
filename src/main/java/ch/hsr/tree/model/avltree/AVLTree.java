@@ -60,16 +60,15 @@ public class AVLTree<K extends Comparable<K>> extends BinaryTree<K> {
         }
     }
 
-    public K put(K content) {
-        K entry = find(content);
-        if (entry == null) {
+    public boolean put(K content) {
+        if (!find(content)) {
             super.insert(content);
             rebalance(actionNode);
             actionNode = null;
-            return null;
+            return true;
         }
 
-        return entry;
+        return false;
     }
 
     @Override
